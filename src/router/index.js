@@ -6,14 +6,18 @@ const Stack = createStackNavigator();
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="WelcomeAuth">
+    <Stack.Navigator initialRouteName="SignUp">
       <Stack.Screen
         name="WelcomeAuth"
         component={WelcomeAuth}
         options={{headerShown: false}}
       />
       <Stack.Screen name="SignIn" component={SignIn} />
-      <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen
+        name="SignUp"
+        component={SignUp}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };
