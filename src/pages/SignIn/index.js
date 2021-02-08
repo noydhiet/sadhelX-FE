@@ -3,9 +3,9 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {TextInput, Button, Gap} from '../../components/atoms';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
   const onSubmit = () => {
-    navigation.navigate('SignUpForm');
+    navigation.navigate('Main');
   };
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
@@ -20,32 +20,78 @@ const SignIn = () => {
       </View>
       <View style={styles.container}>
         <View style={styles.main}>
-          <Text style={styles.titleText}>Welcome to sadhelX</Text>
-          <View style={styles.subtitleContainer}>
-            <Text style={styles.subtitleLeft}>
-              We just need a few quick details to continue
-            </Text>
-            <Text style={styles.subtitleRight}>1/2</Text>
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>Sign in to sadhelX</Text>
+            <Text style={styles.subtitleText}>Enter your detail below</Text>
           </View>
-          <Gap height={10} />
-          <Text style={styles.labelTitle}>Profile Photo</Text>
-          <TouchableOpacity style={styles.photoContainer}>
-            <View></View>
-          </TouchableOpacity>
-          <Gap height={10} />
-          <TextInput label="Name" placeholder="Enter your full name" />
-          <Gap height={40} />
+          <Gap height={30} />
+          <TextInput
+            label="User Name or Email"
+            placeholder="Enter your full name"
+          />
+          <Gap height={0} />
+          <View>
+            <TouchableOpacity
+              style={{
+                height: 20,
+                bottom: -20,
+                zIndex: 2,
+                position: 'relative',
+              }}
+              onPress={() => handleGoTo('ForgotPassword')}>
+              <Text
+                style={{
+                  fontFamily: 'RobotoRegular',
+                  fontSize: 12,
+                  color: '#0c8eff',
+                  position: 'absolute',
+                  right: 0,
+                  bottom: 5,
+                }}>
+                Forgot Password
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <TextInput
+            label="Password"
+            placeholder="Password at least 8 characters"
+          />
+          <Gap height={30} />
           <Button
-            text="Next"
+            text="Sign In"
             backgroundcolor="#757575"
             textcolor="white"
             onPress={onSubmit}
           />
-          <Gap height={200} />
+          <Gap height={20} />
+          <View
+            style={{
+              height: 1,
+              backgroundColor: '#757575',
+              position: 'relative',
+            }}>
+            <Text
+              style={{
+                position: 'absolute',
+                left: '45%',
+                bottom: -10,
+                backgroundColor: 'white',
+                textAlign: 'center',
+                height: 25,
+                width: 25,
+                fontSize: 16,
+                fontFamily: 'SarabunMedium',
+              }}>
+              OR
+            </Text>
+          </View>
+          <Gap height={40} />
+          <Button text="Sign in with Google" />
+          <Gap height={50} />
           <View style={styles.signInWrapper}>
-            <Text style={styles.textOuter}>Already a member?</Text>
-            <Text style={styles.textInner} onPress={() => handleGoTo('SignIn')}>
-              Sign In
+            <Text style={styles.textOuter}>Not a member?</Text>
+            <Text style={styles.textInner} onPress={() => handleGoTo('SignUp')}>
+              Create account
             </Text>
           </View>
         </View>
@@ -61,6 +107,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     flex: 1,
+    backgroundColor: 'white',
   },
   header: {
     height: 40,
@@ -79,39 +126,19 @@ const styles = StyleSheet.create({
     height: 24,
     backgroundColor: '#747474',
   },
+  titleContainer: {
+    paddingHorizontal: 30,
+  },
   titleText: {
     fontSize: 26,
     fontFamily: 'SarabunExtraBold',
+    textAlign: 'center',
   },
-  subtitleContainer: {
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'space-between',
-  },
-  subtitleLeft: {
+  subtitleText: {
+    fontSize: 14,
     fontFamily: 'SarabunRegular',
-    width: 200,
     color: '#6e6e6e',
-  },
-  subtitleRight: {
-    fontFamily: 'SarabunMedium',
-    fontSize: 16,
-    // backgroundColor: 'red',
-    alignItems: 'center',
-    width: 25,
-    height: 25,
-  },
-  photoContainer: {
-    height: 80,
-    width: 80,
-    backgroundColor: '#6e6e6e',
-    borderRadius: 20,
-    marginVertical: 10,
-  },
-  labelTitle: {
-    fontFamily: 'RobotoRegular',
-    fontSize: 12,
-    color: '#22262f',
+    textAlign: 'center',
   },
   signInWrapper: {
     flexDirection: 'row',

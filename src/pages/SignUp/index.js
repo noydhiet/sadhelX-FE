@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet,ScrollView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {TextInput, Button, Gap} from '../../components/atoms';
 
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     flex: 1,
+    backgroundColor: 'white',
   },
   header: {
     height: 40,

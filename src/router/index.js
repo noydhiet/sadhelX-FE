@@ -7,6 +7,8 @@ import {
   CheckEmailToken,
   SuccessSignUp,
   SignIn,
+  ForgotPassword,
+  Main,
 } from '../pages';
 
 const Stack = createStackNavigator();
@@ -19,7 +21,11 @@ const Router = () => {
         component={WelcomeAuth}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="SignIn" component={SignIn} />
+      <Stack.Screen
+        name="SignIn"
+        component={SignIn}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="SignUp"
         component={SignUp}
@@ -38,6 +44,16 @@ const Router = () => {
       <Stack.Screen
         name="SuccessSignUp"
         component={SuccessSignUp}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ForgotPassword"
+        component={ForgotPassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Main"
+        component={Main}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
