@@ -1,7 +1,9 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {TextInput, Button, Gap} from '../../components/atoms';
+import {ButtonGoogle} from '../../components/molecules';
+import {BackIcon} from '../../assets';
 
 const SignIn = ({navigation}) => {
   const onSubmit = () => {
@@ -14,9 +16,9 @@ const SignIn = ({navigation}) => {
   return (
     <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.iconBack}
-          onPress={() => navigation.goBack()}></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image source={BackIcon} style={styles.iconBack} />
+        </TouchableOpacity>
       </View>
       <View style={styles.container}>
         <View style={styles.main}>
@@ -35,21 +37,19 @@ const SignIn = ({navigation}) => {
               style={{
                 height: 20,
                 bottom: -20,
-                zIndex: 2,
                 position: 'relative',
               }}
               onPress={() => handleGoTo('ForgotPassword')}>
-              <Text
-                style={{
-                  fontFamily: 'RobotoRegular',
-                  fontSize: 12,
-                  color: '#0c8eff',
-                  position: 'absolute',
-                  right: 0,
-                  bottom: 5,
-                }}>
-                Forgot Password
-              </Text>
+              <View style={{position: 'absolute', right: 0, bottom: 5}}>
+                <Text
+                  style={{
+                    fontFamily: 'RobotoRegular',
+                    fontSize: 12,
+                    color: '#0c8eff',
+                  }}>
+                  Forgot Password
+                </Text>
+              </View>
             </TouchableOpacity>
           </View>
           <TextInput
@@ -86,7 +86,7 @@ const SignIn = ({navigation}) => {
             </Text>
           </View>
           <Gap height={40} />
-          <Button text="Sign in with Google" />
+          <ButtonGoogle />
           <Gap height={50} />
           <View style={styles.signInWrapper}>
             <Text style={styles.textOuter}>Not a member?</Text>
@@ -122,9 +122,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   iconBack: {
-    width: 24,
-    height: 24,
-    backgroundColor: '#747474',
+    width: 20,
+    height: 20,
   },
   titleContainer: {
     paddingHorizontal: 30,

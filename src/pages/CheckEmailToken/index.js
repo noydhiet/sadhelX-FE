@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {G} from 'react-native-svg';
 import {TextInput, Button, Gap} from '../../components/atoms';
+import {BackIcon} from '../../assets';
 
 const CheckEmailToken = ({navigation}) => {
   const onSubmit = () => {
@@ -16,9 +16,9 @@ const CheckEmailToken = ({navigation}) => {
   return (
     <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.iconBack}
-          onPress={() => navigation.goBack()}></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image source={BackIcon} style={styles.iconBack} />
+        </TouchableOpacity>
       </View>
       <View style={styles.container}>
         <View style={styles.main}>
@@ -87,9 +87,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   iconBack: {
-    width: 24,
-    height: 24,
-    backgroundColor: '#747474',
+    width: 20,
+    height: 20,
   },
   titleText: {
     fontSize: 25,

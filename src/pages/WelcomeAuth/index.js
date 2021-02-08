@@ -1,6 +1,8 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground} from 'react-native';
 import {Button} from '../../components/atoms';
+import {ButtonGoogle} from '../../components/molecules';
+import {DummyBanner} from '../../assets';
 
 const WelcomeAuth = ({navigation}) => {
   const handleGoTo = (screen) => {
@@ -8,10 +10,17 @@ const WelcomeAuth = ({navigation}) => {
   };
   return (
     <View style={styles.wrapper}>
-      <View style={styles.banner}></View>
+      <ImageBackground style={styles.imageBanner} source={DummyBanner}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.titleBanner}>
+            In this text will give information
+          </Text>
+          <Text style={styles.subtitleBanner}>“Quotes something in here”</Text>
+        </View>
+      </ImageBackground>
       <View style={styles.containerLogin}>
         <View style={{width: 280}}>
-          <Button text="Sign in with Google" />
+          <ButtonGoogle />
         </View>
         <View style={{width: 280}}>
           <Button
@@ -39,8 +48,27 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#b3e1e7',
   },
-  banner: {
+  imageBanner: {
+    width: '100%',
+    height: '105%',
     flex: 1,
+    position: 'relative',
+    resizeMode: 'cover',
+  },
+  titleContainer: {
+    marginHorizontal: 16,
+    marginTop: 170,
+    width: 235,
+  },
+  titleBanner: {
+    fontFamily: 'SarabunExtraBold',
+    fontSize: 24,
+    color: '#22262f',
+  },
+  subtitleBanner: {
+    fontFamily: 'SarabunSemiBold',
+    fontSize: 16,
+    color: '#757575',
   },
   containerLogin: {
     backgroundColor: 'white',

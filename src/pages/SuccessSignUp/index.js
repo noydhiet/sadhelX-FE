@@ -1,7 +1,9 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Button, Gap} from '../../components/atoms';
+import {SuccessIllustration, BackIcon} from '../../assets';
+import {CloseIcon} from '../../assets';
 
 const SucessSignUp = ({navigation}) => {
   const onSubmit = () => {
@@ -15,20 +17,15 @@ const SucessSignUp = ({navigation}) => {
   return (
     <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.iconBack}
-          onPress={() => navigation.goBack()}></TouchableOpacity>
+        <TouchableOpacity onPress={() => handleGoTo('WelcomeAuth')}>
+          <Image source={CloseIcon} style={styles.iconBack} />
+        </TouchableOpacity>
       </View>
       <View style={styles.container}>
         <View style={styles.main}>
           <Text style={styles.titleText}>Create Account Success</Text>
           <Gap height={20} />
-          <View
-            style={{
-              width: 250,
-              height: 200,
-              backgroundColor: '#0c8eff',
-            }}></View>
+          <SuccessIllustration style={styles.illustrationSuccess} />
           <Gap height={15} />
           <Text style={styles.desctext}>Now you can sign in to sadhelX</Text>
           <Gap height={30} />
@@ -48,7 +45,7 @@ export default SucessSignUp;
 
 const styles = StyleSheet.create({
   wrapper: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 20,
     paddingVertical: 10,
     flex: 1,
     backgroundColor: 'white',
@@ -66,9 +63,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   iconBack: {
-    width: 24,
-    height: 24,
-    backgroundColor: '#747474',
+    width: 20,
+    height: 20,
   },
   titleText: {
     // paddingHorizontal: 25,
@@ -80,5 +76,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#6e6e6e',
     fontSize: 14,
+  },
+  illustrationSuccess: {
+    width: 250,
+    height: 200,
   },
 });

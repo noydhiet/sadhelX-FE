@@ -1,7 +1,9 @@
-import React from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {TextInput, Button, Gap} from '../../components/atoms';
+import {BackIcon, PhotoDummy} from '../../assets';
+import {launchImageLibrary} from 'react-native-image-picker';
 
 const SignUp = ({navigation}) => {
   const onSubmit = () => {
@@ -11,12 +13,38 @@ const SignUp = ({navigation}) => {
     navigation.navigate(screen);
   };
 
+  const [photo, setPhoto] = useState('');
+
+  const addPhoto = () => {
+    launchImageLibrary(
+      {
+        quality: 0.5,
+        maxWidth: 200,
+        maxHeight: 200,
+      },
+      (response) => {
+        if (response.didCancel || response.error) {
+          alert('Anda tidak memilih photo');
+        } else {
+          const source = {uri: response.uri};
+          const dataImage = {
+            uri: response.uri,
+            type: response.type,
+            name: response.fileName,
+          };
+
+          setPhoto(source);
+        }
+      },
+    );
+  };
+
   return (
     <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.iconBack}
-          onPress={() => navigation.goBack()}></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image source={BackIcon} style={styles.iconBack}></Image>
+        </TouchableOpacity>
       </View>
       <View style={styles.container}>
         <View style={styles.main}>
@@ -29,9 +57,18 @@ const SignUp = ({navigation}) => {
           </View>
           <Gap height={10} />
           <Text style={styles.labelTitle}>Profile Photo</Text>
-          <TouchableOpacity style={styles.photoContainer}>
-            <View></View>
-          </TouchableOpacity>
+          <View style={styles.photoWrapper}>
+            <TouchableOpacity style={styles.photoContainer} onPress={addPhoto}>
+              {photo ? (
+                <Image source={photo} style={styles.photoContainer} />
+              ) : (
+                <PhotoDummy width="50" height="50" />
+              )}
+            </TouchableOpacity>
+            <View style={styles.addPhoto}>
+              <Text style={{color: 'white'}}>+</Text>
+            </View>
+          </View>
           <Gap height={10} />
           <TextInput label="Name" placeholder="Enter your full name" />
           <Gap height={40} />
@@ -76,9 +113,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   iconBack: {
-    width: 24,
-    height: 24,
-    backgroundColor: '#747474',
+    width: 20,
+    height: 20,
   },
   titleText: {
     fontSize: 26,
@@ -102,12 +138,31 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
   },
+  photoWrapper: {
+    height: 90,
+    width: 85,
+    position: 'relative',
+  },
   photoContainer: {
-    height: 80,
-    width: 80,
-    backgroundColor: '#6e6e6e',
+    height: 75,
+    width: 75,
+    borderWidth: 1,
+    borderColor: '#80979797',
     borderRadius: 20,
     marginVertical: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addPhoto: {
+    backgroundColor: '#0c8eff',
+    height: 20,
+    width: 20,
+    borderRadius: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 0,
+    right: 5,
   },
   labelTitle: {
     fontFamily: 'RobotoRegular',

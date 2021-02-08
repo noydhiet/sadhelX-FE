@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <ScrollView>
       <View>
-        <Text>Ini Halaman Feed</Text>
+        <Text>Hallo ini Halaman Feed</Text>
       </View>
     </ScrollView>
   );
