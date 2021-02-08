@@ -1,45 +1,56 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet,ScrollView} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {TextInput, Button, Gap} from '../../components/atoms';
 
 const SignUp = ({navigation}) => {
+  const onSubmit = () => {
+    navigation.navigate('SignUpForm');
+  };
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
   };
+
   return (
-    <View style={styles.wrapper}>
-      <TouchableOpacity
-        style={styles.iconBack}
-        onPress={() => handleGoTo('WelcomeAuth')}></TouchableOpacity>
-      <View style={styles.container}>
-        <Text style={styles.titleText}>Welcome to sadhelX</Text>
-        <View style={styles.subtitleContainer}>
-          <Text style={styles.subtitleLeft}>
-            We just need a few quick details to continue
-          </Text>
-          <Text style={styles.subtitleRight}>1/2</Text>
-        </View>
+    <ScrollView style={styles.wrapper}>
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.iconBack}
+          onPress={() => navigation.goBack()}></TouchableOpacity>
       </View>
       <View style={styles.container}>
-        <View>
+        <View style={styles.main}>
+          <Text style={styles.titleText}>Welcome to sadhelX</Text>
+          <View style={styles.subtitleContainer}>
+            <Text style={styles.subtitleLeft}>
+              We just need a few quick details to continue
+            </Text>
+            <Text style={styles.subtitleRight}>1/2</Text>
+          </View>
+          <Gap height={10} />
           <Text style={styles.labelTitle}>Profile Photo</Text>
           <TouchableOpacity style={styles.photoContainer}>
             <View></View>
           </TouchableOpacity>
-        </View>
-        <TextInput label="Name" placeholder="Enter your full name" />
-        <Gap height={30} />
-        <Button text="Next" backgroundcolor="#757575" textcolor="white" />
-        <Gap height={80} />
-        <View style={styles.signupWrapper}>
-          <Text style={styles.textOuter}>Already a member?</Text>
-          <Text style={styles.textInner} onPress={() => handleGoTo('SignIn')}>
-            Sign In
-          </Text>
+          <Gap height={10} />
+          <TextInput label="Name" placeholder="Enter your full name" />
+          <Gap height={40} />
+          <Button
+            text="Next"
+            backgroundcolor="#757575"
+            textcolor="white"
+            onPress={onSubmit}
+          />
+          <Gap height={200} />
+          <View style={styles.signInWrapper}>
+            <Text style={styles.textOuter}>Already a member?</Text>
+            <Text style={styles.textInner} onPress={() => handleGoTo('SignIn')}>
+              Sign In
+            </Text>
+          </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -49,10 +60,19 @@ const styles = StyleSheet.create({
   wrapper: {
     paddingHorizontal: 15,
     paddingVertical: 10,
+    flex: 1,
+  },
+  header: {
+    height: 40,
+    justifyContent: 'center',
   },
   container: {
-    paddingHorizontal: 25,
+    flex: 1,
+  },
+  main: {
     paddingVertical: 10,
+    paddingHorizontal: 25,
+    flex: 1,
   },
   iconBack: {
     width: 24,
@@ -93,10 +113,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#22262f',
   },
-  signupWrapper: {
+  signInWrapper: {
     flexDirection: 'row',
+    width: '100%',
     justifyContent: 'center',
-    marginTop: 20,
+    // position: 'absolute',
+    // bottom: 80,
     fontSize: 14,
   },
   textOuter: {

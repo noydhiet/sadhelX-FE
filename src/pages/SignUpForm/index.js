@@ -3,10 +3,11 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {TextInput, Button, Gap} from '../../components/atoms';
 
-const SignIn = () => {
+const SignUpForm = ({navigation}) => {
   const onSubmit = () => {
-    navigation.navigate('SignUpForm');
+    navigation.navigate('CheckEmailToken');
   };
+
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
   };
@@ -25,23 +26,30 @@ const SignIn = () => {
             <Text style={styles.subtitleLeft}>
               We just need a few quick details to continue
             </Text>
-            <Text style={styles.subtitleRight}>1/2</Text>
+            <Text style={styles.subtitleRight}>2/2</Text>
           </View>
+          <Gap height={20} />
+          <TextInput label="Email" placeholder="Enter your email" />
+          <Gap height={20} />
+          <TextInput
+            label="Create Password"
+            placeholder="Password at least 8 characters"
+          />
+          <Gap height={20} />
+          <TextInput
+            label="Confirm Password"
+            placeholder="Password at least 8 characters"
+          />
           <Gap height={10} />
-          <Text style={styles.labelTitle}>Profile Photo</Text>
-          <TouchableOpacity style={styles.photoContainer}>
-            <View></View>
-          </TouchableOpacity>
-          <Gap height={10} />
-          <TextInput label="Name" placeholder="Enter your full name" />
-          <Gap height={40} />
+          <Text style={styles.confrimtext}>Both password must be match</Text>
+          <Gap height={20} />
           <Button
-            text="Next"
             backgroundcolor="#757575"
-            textcolor="white"
+            textcolor="#ffff"
+            text="Create Account"
             onPress={onSubmit}
           />
-          <Gap height={200} />
+          <Gap height={120} />
           <View style={styles.signInWrapper}>
             <Text style={styles.textOuter}>Already a member?</Text>
             <Text style={styles.textInner} onPress={() => handleGoTo('SignIn')}>
@@ -54,7 +62,7 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUpForm;
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -96,17 +104,10 @@ const styles = StyleSheet.create({
   subtitleRight: {
     fontFamily: 'SarabunMedium',
     fontSize: 16,
-    // backgroundColor: 'red',
+
     alignItems: 'center',
     width: 25,
     height: 25,
-  },
-  photoContainer: {
-    height: 80,
-    width: 80,
-    backgroundColor: '#6e6e6e',
-    borderRadius: 20,
-    marginVertical: 10,
   },
   labelTitle: {
     fontFamily: 'RobotoRegular',
@@ -129,5 +130,9 @@ const styles = StyleSheet.create({
     fontFamily: 'SarabunMedium',
     marginLeft: 5,
     color: '#0c8eff',
+  },
+  confrimtext: {
+    color: '#6e6e6e',
+    fontSize: 12,
   },
 });
