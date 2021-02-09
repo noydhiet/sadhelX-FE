@@ -1,8 +1,19 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {TextInputIcon, TextInput, Button, Gap} from '../../components/atoms';
-import {BackIcon, LockIcon} from '../../assets';
+import {
+  TextInputPassword,
+  TextInput,
+  Button,
+  Gap,
+} from '../../components/atoms';
+import {
+  BackIcon,
+  LockIcon,
+  SeePassword,
+  LockIconActive,
+  SeePasswordActive,
+} from '../../assets';
 
 const SignUpForm = ({navigation}) => {
   const onSubmit = () => {
@@ -30,20 +41,29 @@ const SignUpForm = ({navigation}) => {
             <Text style={styles.subtitleRight}>2/2</Text>
           </View>
           <Gap height={20} />
-          <TextInput label="Email" placeholder="Enter your email" />
-          <Gap height={20} />
-          <TextInputIcon
-            label="Create Password"
-            placeholder="Password at least 8 characters"
-            secureTextEntry
-            sourceImageLeft={LockIcon}
+          <TextInput
+            label="Email"
+            placeholder="Enter your email"
+            textContentType="emailAddress"
+            keyboardType="email-address"
           />
           <Gap height={20} />
-          <TextInputIcon
+          <TextInputPassword
+            label="Create Password"
+            placeholder="Password at least 8 characters"
+            sourceImageLeft={LockIcon}
+            sourceImageLeftActive={LockIconActive}
+            sourceImageRight={SeePassword}
+            sourceImageRightActive={SeePasswordActive}
+          />
+          <Gap height={20} />
+          <TextInputPassword
             label="Confirm Password"
             placeholder="Password at least 8 characters"
-            secureTextEntry
             sourceImageLeft={LockIcon}
+            sourceImageLeftActive={LockIconActive}
+            sourceImageRight={SeePassword}
+            sourceImageRightActive={SeePasswordActive}
           />
           <Gap height={10} />
           <Text style={styles.confrimtext}>Both password must be match</Text>
@@ -123,8 +143,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'center',
-    // position: 'absolute',
-    // bottom: 80,
     fontSize: 14,
   },
   textOuter: {

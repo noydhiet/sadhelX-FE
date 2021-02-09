@@ -13,9 +13,12 @@ const TextInputIcon = ({
   placeholder,
   sourceImageLeft,
   sourceImageLeftActive,
+  sourceImageRight,
+  sourceImageRightActive,
   ...restProps
 }) => {
   const [isFocused, setIsFocused] = useState();
+  const [hidePass, setHidePass] = useState(true);
 
   return (
     <View onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)}>
@@ -28,8 +31,26 @@ const TextInputIcon = ({
         <TextInputRN
           style={styles.input}
           placeholder={placeholder}
+          secureTextEntry={hidePass ? true : false}
           {...restProps}
         />
+        {isFocused ? (
+          <TouchableOpacity
+            style={{
+              width: 30,
+              height: 30,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+            onPress={() => setHidePass(!hidePass)}>
+            <Image
+              style={styles.imageRight}
+              source={hidePass ? sourceImageRightActive : sourceImageRight}
+            />
+          </TouchableOpacity>
+        ) : (
+          <View></View>
+        )}
       </View>
     </View>
   );
@@ -78,6 +99,11 @@ const styles = StyleSheet.create({
   imageLeft: {
     height: 15,
     width: 15,
+    resizeMode: 'stretch',
+  },
+  imageRight: {
+    height: 15,
+    width: 20,
     resizeMode: 'stretch',
   },
 });

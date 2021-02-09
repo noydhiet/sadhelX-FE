@@ -43,14 +43,11 @@ const CheckEmailToken = ({navigation}) => {
           </View>
           <Gap height={20} />
           <View style={styles.verifyContainer}>
-            {/* <TextInput style={styles.numberInput} maxLength={1}></TextInput>
-            <TextInput style={styles.numberInput} maxLength={1}></TextInput>
-            <TextInput style={styles.numberInput} maxLength={1}></TextInput>
-            <TextInput style={styles.numberInput} maxLength={1}></TextInput> */}
             <SmoothPinCodeInput
               maskDelay={1000}
               // password={true}
               codeLength={4}
+              cellStyleFocused={styles.cellFocused}
               cellStyle={styles.numberInput}
               value={pin}
               onTextChange={(code) => {
@@ -145,9 +142,7 @@ const styles = StyleSheet.create({
     borderColor: '#80979797',
     borderRadius: 20,
     padding: 20,
-    fontSize: 20,
     marginRight: 15,
-    fontFamily: 'RobotoMedium',
   },
   helpWrapper: {
     flexDirection: 'row',
@@ -159,5 +154,9 @@ const styles = StyleSheet.create({
     fontFamily: 'SarabunMedium',
     marginLeft: 5,
     color: '#0c8eff',
+  },
+  cellFocused: {
+    borderColor: '#0c8eff',
+    borderWidth: 2,
   },
 });

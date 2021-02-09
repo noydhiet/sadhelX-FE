@@ -1,9 +1,22 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {TextInputIcon, Button, Gap} from '../../components/atoms';
+import {
+  TextInputIcon,
+  TextInputPassword,
+  Button,
+  Gap,
+} from '../../components/atoms';
 import {ButtonGoogle} from '../../components/molecules';
-import {BackIcon, UserIcon, LockIcon} from '../../assets';
+import {
+  BackIcon,
+  UserIcon,
+  LockIcon,
+  UserIconActive,
+  LockIconActive,
+  SeePassword,
+  SeePasswordActive,
+} from '../../assets';
 
 const SignIn = ({navigation}) => {
   const onSubmit = () => {
@@ -31,6 +44,7 @@ const SignIn = ({navigation}) => {
             label="User Name or Email"
             placeholder="Enter your full name"
             sourceImageLeft={UserIcon}
+            sourceImageLeftActive={UserIconActive}
           />
           <View>
             <TouchableOpacity
@@ -52,11 +66,13 @@ const SignIn = ({navigation}) => {
               </View>
             </TouchableOpacity>
           </View>
-          <TextInputIcon
+          <TextInputPassword
             label="Password"
             placeholder="Password at least 8 characters"
-            secureTextEntry
             sourceImageLeft={LockIcon}
+            sourceImageLeftActive={LockIconActive}
+            sourceImageRight={SeePassword}
+            sourceImageRightActive={SeePasswordActive}
           />
           <Gap height={30} />
           <Button
