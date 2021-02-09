@@ -7,11 +7,12 @@ import {
   Image,
 } from 'react-native';
 
-const TextInput = ({label, placeholder, ...restProps}) => {
+const TextInputIcon = ({label, placeholder, sourceImageLeft, ...restProps}) => {
   return (
     <View>
       <Text style={styles.label}>{label}</Text>
       <View style={styles.container}>
+        <Image style={styles.imageLeft} source={sourceImageLeft} />
         <TextInputRN
           style={styles.input}
           placeholder={placeholder}
@@ -22,7 +23,7 @@ const TextInput = ({label, placeholder, ...restProps}) => {
   );
 };
 
-export default TextInput;
+export default TextInputIcon;
 
 const styles = StyleSheet.create({
   label: {
@@ -44,6 +45,12 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    paddingLeft: 15,
     color: '#22262f',
+  },
+  imageLeft: {
+    height: 15,
+    width: 15,
+    resizeMode: 'stretch',
   },
 });

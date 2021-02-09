@@ -78,7 +78,7 @@ const SignUp = ({navigation}) => {
             textcolor="white"
             onPress={onSubmit}
           />
-          <Gap height={200} />
+          <Gap height={210} />
           <View style={styles.signInWrapper}>
             <Text style={styles.textOuter}>Already a member?</Text>
             <Text style={styles.textInner} onPress={() => handleGoTo('SignIn')}>

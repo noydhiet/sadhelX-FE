@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 57,
-    marginBottom: 21,
   },
   icons: {
     height: 30,

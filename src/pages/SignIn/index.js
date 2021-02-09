@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {TextInput, Button, Gap} from '../../components/atoms';
+import {TextInputIcon, Button, Gap} from '../../components/atoms';
 import {ButtonGoogle} from '../../components/molecules';
-import {BackIcon} from '../../assets';
+import {BackIcon, UserIcon, LockIcon} from '../../assets';
 
 const SignIn = ({navigation}) => {
   const onSubmit = () => {
@@ -16,7 +16,7 @@ const SignIn = ({navigation}) => {
   return (
     <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => handleGoTo('WelcomeAuth')}>
           <Image source={BackIcon} style={styles.iconBack} />
         </TouchableOpacity>
       </View>
@@ -27,11 +27,11 @@ const SignIn = ({navigation}) => {
             <Text style={styles.subtitleText}>Enter your detail below</Text>
           </View>
           <Gap height={30} />
-          <TextInput
+          <TextInputIcon
             label="User Name or Email"
             placeholder="Enter your full name"
+            sourceImageLeft={UserIcon}
           />
-          <Gap height={0} />
           <View>
             <TouchableOpacity
               style={{
@@ -52,9 +52,11 @@ const SignIn = ({navigation}) => {
               </View>
             </TouchableOpacity>
           </View>
-          <TextInput
+          <TextInputIcon
             label="Password"
             placeholder="Password at least 8 characters"
+            secureTextEntry
+            sourceImageLeft={LockIcon}
           />
           <Gap height={30} />
           <Button
@@ -63,7 +65,7 @@ const SignIn = ({navigation}) => {
             textcolor="white"
             onPress={onSubmit}
           />
-          <Gap height={20} />
+          <Gap height={50} />
           <View
             style={{
               height: 1,
@@ -85,9 +87,9 @@ const SignIn = ({navigation}) => {
               OR
             </Text>
           </View>
-          <Gap height={40} />
-          <ButtonGoogle />
           <Gap height={50} />
+          <ButtonGoogle />
+          <Gap height={70} />
           <View style={styles.signInWrapper}>
             <Text style={styles.textOuter}>Not a member?</Text>
             <Text style={styles.textInner} onPress={() => handleGoTo('SignUp')}>

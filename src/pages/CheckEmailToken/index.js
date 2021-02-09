@@ -1,8 +1,16 @@
-import React from 'react';
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image,
+  TextInput,
+} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {TextInput, Button, Gap} from '../../components/atoms';
+import {Button, Gap} from '../../components/atoms';
 import {BackIcon} from '../../assets';
+import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 
 const CheckEmailToken = ({navigation}) => {
   const onSubmit = () => {
@@ -12,6 +20,8 @@ const CheckEmailToken = ({navigation}) => {
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
   };
+
+  const [pin, setPin] = useState('');
 
   return (
     <ScrollView style={styles.wrapper}>
@@ -33,10 +43,20 @@ const CheckEmailToken = ({navigation}) => {
           </View>
           <Gap height={20} />
           <View style={styles.verifyContainer}>
+            {/* <TextInput style={styles.numberInput} maxLength={1}></TextInput>
             <TextInput style={styles.numberInput} maxLength={1}></TextInput>
             <TextInput style={styles.numberInput} maxLength={1}></TextInput>
-            <TextInput style={styles.numberInput} maxLength={1}></TextInput>
-            <TextInput style={styles.numberInput} maxLength={1}></TextInput>
+            <TextInput style={styles.numberInput} maxLength={1}></TextInput> */}
+            <SmoothPinCodeInput
+              maskDelay={1000}
+              // password={true}
+              codeLength={4}
+              cellStyle={styles.numberInput}
+              value={pin}
+              onTextChange={(code) => {
+                setPin(code);
+              }}
+            />
           </View>
           <Gap height={20} />
           <Text style={styles.subtitle}>
@@ -51,7 +71,7 @@ const CheckEmailToken = ({navigation}) => {
             textcolor="white"
             onPress={onSubmit}
           />
-          <Gap height={180} />
+          <Gap height={200} />
           <View style={styles.helpWrapper}>
             <Text
               style={styles.textInner}
@@ -116,7 +136,7 @@ const styles = StyleSheet.create({
   },
   verifyContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   numberInput: {
     height: 60,
@@ -126,14 +146,13 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 20,
     fontSize: 20,
+    marginRight: 15,
     fontFamily: 'RobotoMedium',
   },
   helpWrapper: {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'center',
-    // position: 'absolute',
-    // bottom: 80,
     fontSize: 14,
   },
   textInner: {

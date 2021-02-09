@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 
 const Button = ({
   text,
@@ -7,12 +7,21 @@ const Button = ({
   textcolor = '#020202',
   onPress,
 }) => {
+  const [isPress, setIsPress] = React.useState(false);
+  var touchProps = {
+    activeOpacity: 1,
+    underlayColor: 'transparent', // <-- "backgroundColor" will be always overwritten by "underlayColor"
+    style: isPress ? styles.btnPress : styles.btnNormal, // <-- but you can still apply other style changes
+    onHideUnderlay: () => setIsPress(false),
+    onShowUnderlay: () => setIsPress(true),
+  };
+
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableHighlight onPress={onPress} {...touchProps}>
       <View style={styles.container(backgroundcolor)}>
         <Text style={styles.text(textcolor)}>{text}</Text>
       </View>
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 };
 
@@ -26,7 +35,6 @@ const styles = StyleSheet.create({
     borderColor: '#80979797',
     justifyContent: 'center',
     height: 57,
-    marginBottom: 21,
   }),
   text: (textcolor) => ({
     fontSize: 14,

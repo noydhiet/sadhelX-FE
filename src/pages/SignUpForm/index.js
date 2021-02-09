@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {TextInput, Button, Gap} from '../../components/atoms';
-import {BackIcon} from '../../assets';
+import {TextInputIcon, TextInput, Button, Gap} from '../../components/atoms';
+import {BackIcon, LockIcon} from '../../assets';
 
 const SignUpForm = ({navigation}) => {
   const onSubmit = () => {
@@ -32,14 +32,18 @@ const SignUpForm = ({navigation}) => {
           <Gap height={20} />
           <TextInput label="Email" placeholder="Enter your email" />
           <Gap height={20} />
-          <TextInput
+          <TextInputIcon
             label="Create Password"
             placeholder="Password at least 8 characters"
+            secureTextEntry
+            sourceImageLeft={LockIcon}
           />
           <Gap height={20} />
-          <TextInput
+          <TextInputIcon
             label="Confirm Password"
             placeholder="Password at least 8 characters"
+            secureTextEntry
+            sourceImageLeft={LockIcon}
           />
           <Gap height={10} />
           <Text style={styles.confrimtext}>Both password must be match</Text>
