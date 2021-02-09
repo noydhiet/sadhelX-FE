@@ -8,6 +8,9 @@ import {
   SuccessSignUp,
   SignIn,
   ForgotPassword,
+  CheckEmailForgotPassword,
+  SuccessCreatePassword,
+  CreateNewPassword,
   Main,
 } from '../pages';
 
@@ -49,6 +52,21 @@ const Router = () => {
       <Stack.Screen
         name="ForgotPassword"
         component={ForgotPassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CheckEmailForgotPassword"
+        component={CheckEmailForgotPassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SuccessCreatePassword"
+        component={SuccessCreatePassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CreateNewPassword"
+        component={CreateNewPassword}
         options={{headerShown: false}}
       />
       <Stack.Screen

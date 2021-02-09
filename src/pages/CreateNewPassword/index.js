@@ -8,11 +8,19 @@ import {
   Gap,
 } from '../../components/atoms';
 import {ButtonGoogle} from '../../components/molecules';
-import {BackIcon, UserIcon, UserIconActive} from '../../assets';
+import {
+  BackIcon,
+  UserIcon,
+  LockIcon,
+  UserIconActive,
+  LockIconActive,
+  SeePassword,
+  SeePasswordActive,
+} from '../../assets';
 
-const ForgotPassword = ({navigation}) => {
+const CreateNewPassword = ({navigation}) => {
   const onSubmit = () => {
-    navigation.navigate('CheckEmailForgotPassword');
+    navigation.navigate('SuccessCreatePassword');
   };
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
@@ -21,72 +29,54 @@ const ForgotPassword = ({navigation}) => {
   return (
     <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => handleGoTo('SignUp')}>
+        <TouchableOpacity onPress={() => handleGoTo('WelcomeAuth')}>
           <Image source={BackIcon} style={styles.iconBack} />
         </TouchableOpacity>
       </View>
       <View style={styles.container}>
         <View style={styles.main}>
           <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>Forgot Password</Text>
+            <Text style={styles.titleText}>Create New Password</Text>
             <Text style={styles.subtitleText}>
-              Enter your username or the email or phone number linked to your
-              account
+              Your new password must be different from previous used passwords.
             </Text>
           </View>
           <Gap height={30} />
-          <TextInputIcon
-            label="User Name or Email"
-            placeholder="Enter your full name"
-            sourceImageLeft={UserIcon}
-            sourceImageLeftActive={UserIconActive}
+          <TextInputPassword
+            label="New Password"
+            placeholder="Password at least 8 characters"
+            sourceImageLeft={LockIcon}
+            sourceImageLeftActive={LockIconActive}
+            sourceImageRight={SeePassword}
+            sourceImageRightActive={SeePasswordActive}
           />
-          <Gap height={30} />
+          <Gap height={20} />
+          <TextInputPassword
+            label="Confrim Password"
+            placeholder="Password at least 8 characters"
+            sourceImageLeft={LockIcon}
+            sourceImageLeftActive={LockIconActive}
+            sourceImageRight={SeePassword}
+            sourceImageRightActive={SeePasswordActive}
+          />
+          <Gap height={20} />
+          <Text style={{fontSize: 12, fontFamily: 'RobotoRegular'}}>
+            Both password must be match.
+          </Text>
+          <Gap height={40} />
           <Button
-            text="Next"
+            text="Create new password"
             backgroundcolor="#757575"
             textcolor="white"
             onPress={onSubmit}
           />
-          <Gap height={50} />
-          <View
-            style={{
-              height: 1,
-              backgroundColor: '#757575',
-              position: 'relative',
-            }}>
-            <Text
-              style={{
-                position: 'absolute',
-                left: '45%',
-                bottom: -10,
-                backgroundColor: 'white',
-                textAlign: 'center',
-                height: 25,
-                width: 25,
-                fontSize: 16,
-                fontFamily: 'SarabunMedium',
-              }}>
-              OR
-            </Text>
-          </View>
-          <Gap height={50} />
-          <ButtonGoogle />
-          <Gap height={150} />
-          <View style={styles.signInWrapper}>
-            <Text
-              style={styles.textInner}
-              onPress={() => handleGoTo('WelcomeAuth')}>
-              Need more help?
-            </Text>
-          </View>
         </View>
       </View>
     </ScrollView>
   );
 };
 
-export default ForgotPassword;
+export default CreateNewPassword;
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -112,7 +102,7 @@ const styles = StyleSheet.create({
     height: 20,
   },
   titleContainer: {
-    paddingHorizontal: 0,
+    paddingHorizontal: 30,
   },
   titleText: {
     fontSize: 26,
