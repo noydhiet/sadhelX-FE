@@ -1,3 +1,4 @@
 import ButtonGoogle from './ButtonGoogle';
+import Loading from './Loading';
 
-export {ButtonGoogle};
+export {Loading, ButtonGoogle};

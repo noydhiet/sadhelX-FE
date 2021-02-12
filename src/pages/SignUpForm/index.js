@@ -14,10 +14,23 @@ import {
   LockIconActive,
   SeePasswordActive,
 } from '../../assets';
+import {useDispatch} from 'react-redux';
+import {showMessage, useForm} from '../../utils';
 
 const SignUpForm = ({navigation}) => {
+  const [form, setForm] = useForm({
+    email: '',
+    password: '',
+  });
+  const dispatch = useDispatch();
   const onSubmit = () => {
-    navigation.navigate('CheckEmailToken');
+    if (form.password != form.confirm_password) {
+      showMessage('Password tidak sama');
+    } else {
+      console.log(form);
+      // dispatch({type: 'SET_REGISTER', value: form});
+      navigation.navigate('CheckEmailToken');
+    }
   };
 
   const handleGoTo = (screen) => {
@@ -46,6 +59,7 @@ const SignUpForm = ({navigation}) => {
             placeholder="Enter your email"
             textContentType="emailAddress"
             keyboardType="email-address"
+            onChangeText={(value) => setForm('email', value)}
           />
           <Gap height={20} />
           <TextInputPassword
@@ -55,6 +69,7 @@ const SignUpForm = ({navigation}) => {
             sourceImageLeftActive={LockIconActive}
             sourceImageRight={SeePassword}
             sourceImageRightActive={SeePasswordActive}
+            onChangeText={(value) => setForm('password', value)}
           />
           <Gap height={20} />
           <TextInputPassword
@@ -64,6 +79,7 @@ const SignUpForm = ({navigation}) => {
             sourceImageLeftActive={LockIconActive}
             sourceImageRight={SeePassword}
             sourceImageRightActive={SeePasswordActive}
+            onChangeText={(value) => setForm('confirm_password', value)}
           />
           <Gap height={10} />
           <Text style={styles.confrimtext}>Both password must be match</Text>

@@ -4,16 +4,24 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {TextInput, Button, Gap} from '../../components/atoms';
 import {BackIcon, PhotoDummy} from '../../assets';
 import {launchImageLibrary} from 'react-native-image-picker';
+import {useDispatch} from 'react-redux';
+import {showMessage, useForm} from '../../utils';
 
 const SignUp = ({navigation}) => {
+  const [form, setForm] = useForm({
+    name: '',
+  });
+
+  const [photo, setPhoto] = useState('');
+  const dispatch = useDispatch();
+
   const onSubmit = () => {
     navigation.navigate('SignUpForm');
+    console.log(form);
   };
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
   };
-
-  const [photo, setPhoto] = useState('');
 
   const addPhoto = () => {
     launchImageLibrary(
@@ -24,7 +32,7 @@ const SignUp = ({navigation}) => {
       },
       (response) => {
         if (response.didCancel || response.error) {
-          alert('Anda tidak memilih photo');
+          showMessage('Anda tidak memilih photo');
         } else {
           const source = {uri: response.uri};
           const dataImage = {
@@ -34,6 +42,8 @@ const SignUp = ({navigation}) => {
           };
 
           setPhoto(source);
+          dispatch({type: 'SET_PHOTO', value: dataImage});
+          dispatch({type: 'SET_UPLOAD_STATUS', value: true});
         }
       },
     );
@@ -70,7 +80,11 @@ const SignUp = ({navigation}) => {
             </View>
           </View>
           <Gap height={10} />
-          <TextInput label="Name" placeholder="Enter your full name" />
+          <TextInput
+            label="Name"
+            placeholder="Enter your full name"
+            onChangeText={(value) => setForm('name', value)}
+          />
           <Gap height={40} />
           <Button
             text="Next"
