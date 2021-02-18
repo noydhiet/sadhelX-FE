@@ -4,7 +4,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {
   TextInputIcon,
   TextInputPassword,
-  Button,
+  Buttons,
   Gap,
 } from '../../components/atoms';
 import {ButtonGoogle} from '../../components/molecules';
@@ -17,9 +17,18 @@ import {
   SeePassword,
   SeePasswordActive,
 } from '../../assets';
+import {signInAction} from '../../redux/action';
+import {useDispatch} from 'react-redux';
+import {useForm} from '../../utils';
 
 const SignIn = ({navigation}) => {
+  const [form, setForm] = useForm({
+    identity: '',
+    password: '',
+  });
+  const dispatch = useDispatch();
   const onSubmit = () => {
+    dispatch(signInAction(form, navigation));
     navigation.navigate('Main');
   };
   const handleGoTo = (screen) => {
@@ -41,10 +50,12 @@ const SignIn = ({navigation}) => {
           </View>
           <Gap height={30} />
           <TextInputIcon
-            label="User Name or Email"
+            label="Username or Email"
             placeholder="Enter your full name"
             sourceImageLeft={UserIcon}
             sourceImageLeftActive={UserIconActive}
+            value={form.email}
+            onChangeText={(value) => setForm('identity', value)}
           />
           <View>
             <TouchableOpacity
@@ -73,9 +84,11 @@ const SignIn = ({navigation}) => {
             sourceImageLeftActive={LockIconActive}
             sourceImageRight={SeePassword}
             sourceImageRightActive={SeePasswordActive}
+            value={form.password}
+            onChangeText={(value) => setForm('password', value)}
           />
           <Gap height={30} />
-          <Button
+          <Buttons
             text="Sign In"
             backgroundcolor="#757575"
             textcolor="white"

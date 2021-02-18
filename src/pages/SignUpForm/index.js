@@ -4,7 +4,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {
   TextInputPassword,
   TextInput,
-  Button,
+  Buttons,
   Gap,
 } from '../../components/atoms';
 import {
@@ -14,21 +14,30 @@ import {
   LockIconActive,
   SeePasswordActive,
 } from '../../assets';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {signUpAction} from '../../redux/action';
 import {showMessage, useForm} from '../../utils';
 
 const SignUpForm = ({navigation}) => {
   const [form, setForm] = useForm({
+    username: '',
     email: '',
     password: '',
   });
   const dispatch = useDispatch();
+
+  const {registerReducer, photoReducer} = useSelector((state) => state);
   const onSubmit = () => {
-    if (form.password != form.confirm_password) {
+    if (form.username == '' || form.email == '' || form.password == '') {
+      showMessage('Isi semua field');
+    } else if (form.password != form.confirm_password) {
       showMessage('Password tidak sama');
     } else {
-      console.log(form);
-      // dispatch({type: 'SET_REGISTER', value: form});
+      const data = {
+        ...form,
+        ...registerReducer,
+      };
+      dispatch(signUpAction(data, photoReducer, navigation));
       navigation.navigate('CheckEmailToken');
     }
   };
@@ -53,6 +62,12 @@ const SignUpForm = ({navigation}) => {
             </Text>
             <Text style={styles.subtitleRight}>2/2</Text>
           </View>
+          <Gap height={20} />
+          <TextInput
+            label="Username"
+            placeholder="Enter your username"
+            onChangeText={(value) => setForm('username', value)}
+          />
           <Gap height={20} />
           <TextInput
             label="Email"
@@ -84,13 +99,15 @@ const SignUpForm = ({navigation}) => {
           <Gap height={10} />
           <Text style={styles.confrimtext}>Both password must be match</Text>
           <Gap height={20} />
-          <Button
+          <Buttons
             backgroundcolor="#757575"
+            backgroundcoloronpress="#0c8eff"
             textcolor="#ffff"
             text="Create Account"
             onPress={onSubmit}
           />
-          <Gap height={120} />
+          {/* <Buttons /> */}
+          <Gap height={30} />
           <View style={styles.signInWrapper}>
             <Text style={styles.textOuter}>Already a member?</Text>
             <Text style={styles.textInner} onPress={() => handleGoTo('SignIn')}>

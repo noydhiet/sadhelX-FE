@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {TextInput, Button, Gap} from '../../components/atoms';
+import {TextInput, Buttons, Gap} from '../../components/atoms';
 import {BackIcon, PhotoDummy} from '../../assets';
 import {launchImageLibrary} from 'react-native-image-picker';
 import {useDispatch} from 'react-redux';
@@ -16,8 +16,8 @@ const SignUp = ({navigation}) => {
   const dispatch = useDispatch();
 
   const onSubmit = () => {
+    dispatch({type: 'SET_REGISTER', value: form});
     navigation.navigate('SignUpForm');
-    console.log(form);
   };
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
@@ -86,13 +86,14 @@ const SignUp = ({navigation}) => {
             onChangeText={(value) => setForm('name', value)}
           />
           <Gap height={40} />
-          <Button
+          <Buttons
             text="Next"
-            backgroundcolor="#757575"
             textcolor="white"
+            backgroundcolor="#757575"
+            backgroundcoloronpress="#0c8eff"
             onPress={onSubmit}
           />
-          <Gap height={210} />
+          <Gap height={80} />
           <View style={styles.signInWrapper}>
             <Text style={styles.textOuter}>Already a member?</Text>
             <Text style={styles.textInner} onPress={() => handleGoTo('SignIn')}>

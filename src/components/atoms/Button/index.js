@@ -7,17 +7,9 @@ const Button = ({
   textcolor = '#020202',
   onPress,
 }) => {
-  const [isPress, setIsPress] = React.useState(false);
-  var touchProps = {
-    activeOpacity: 1,
-    underlayColor: 'transparent', // <-- "backgroundColor" will be always overwritten by "underlayColor"
-    style: isPress ? styles.btnPress : styles.btnNormal, // <-- but you can still apply other style changes
-    onHideUnderlay: () => setIsPress(false),
-    onShowUnderlay: () => setIsPress(true),
-  };
-
+  
   return (
-    <TouchableHighlight onPress={onPress} {...touchProps}>
+    <TouchableHighlight onPress={onPress} underlayColor={'none'}>
       <View style={styles.container(backgroundcolor)}>
         <Text style={styles.text(textcolor)}>{text}</Text>
       </View>

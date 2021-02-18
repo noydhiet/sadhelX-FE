@@ -14,6 +14,7 @@ import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 
 const CheckEmailToken = ({navigation}) => {
   const onSubmit = () => {
+    console.log(pin);
     navigation.navigate('SuccessSignUp');
   };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View, ImageBackground} from 'react-native';
-import {Button, Gap} from '../../components/atoms';
+import {Button, Buttons, Gap} from '../../components/atoms';
 import {ButtonGoogle} from '../../components/molecules';
 import {DummyBanner} from '../../assets';
 
@@ -24,9 +24,10 @@ const WelcomeAuth = ({navigation}) => {
         </View>
         <Gap height={20} />
         <View style={{width: 280}}>
-          <Button
+          <Buttons
             text="Sign in with your email"
             backgroundcolor="#0c8eff"
+            backgroundcoloronpress="#0c8eff"
             textcolor="white"
             onPress={() => handleGoTo('SignIn')}
           />
