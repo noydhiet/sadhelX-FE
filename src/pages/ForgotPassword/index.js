@@ -1,18 +1,34 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import {
-  TextInputIcon,
-  TextInputPassword,
-  Button,
-  Gap,
-} from '../../components/atoms';
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import {TextInputIcon, Button, Gap} from '../../components/atoms';
 import {ButtonGoogle} from '../../components/molecules';
+import {showMessage, useForm} from '../../utils';
+import {useDispatch, useSelector} from 'react-redux';
 import {BackIcon, UserIcon, UserIconActive} from '../../assets';
+import {forgotPasswordAction} from '../../redux/action';
 
 const ForgotPassword = ({navigation}) => {
+  const [form, setForm] = useForm({
+    identity: '',
+  });
+
+  const dispatch = useDispatch();
+
   const onSubmit = () => {
-    navigation.navigate('CheckEmailForgotPassword');
+    dispatch({type: 'SET_IDENTITY', value: form});
+
+    const data = {
+      ...form,
+    };
+
+    dispatch(forgotPasswordAction(data, navigation));
   };
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
@@ -21,7 +37,7 @@ const ForgotPassword = ({navigation}) => {
   return (
     <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => handleGoTo('SignUp')}>
+        <TouchableOpacity onPress={() => handleGoTo('WelcomeAuth')}>
           <Image source={BackIcon} style={styles.iconBack} />
         </TouchableOpacity>
       </View>
@@ -36,10 +52,11 @@ const ForgotPassword = ({navigation}) => {
           </View>
           <Gap height={30} />
           <TextInputIcon
-            label="User Name or Email"
+            label="Username or Email"
             placeholder="Enter your full name"
             sourceImageLeft={UserIcon}
             sourceImageLeftActive={UserIconActive}
+            onChangeText={(value) => setForm('identity', value)}
           />
           <Gap height={30} />
           <Button

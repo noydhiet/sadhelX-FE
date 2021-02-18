@@ -2,6 +2,7 @@ import SignUp from './SignUp';
 import SignUpForm from './SignUpForm';
 import CheckEmailToken from './CheckEmailToken';
 import CheckEmailForgotPassword from './CheckEmailForgotPassword';
+import CheckEmailForgot from './CheckEmailForgot';
 import CreateNewPassword from './CreateNewPassword';
 import SuccessCreatePassword from './SuccessCreatePassword';
 import SuccessSignUp from './SuccessSignUp';
@@ -20,6 +21,7 @@ export {
   Main,
   ForgotPassword,
   CheckEmailForgotPassword,
+  CheckEmailForgot,
   CreateNewPassword,
   SuccessCreatePassword,
 };

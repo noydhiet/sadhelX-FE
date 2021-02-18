@@ -29,7 +29,6 @@ const SignIn = ({navigation}) => {
   const dispatch = useDispatch();
   const onSubmit = () => {
     dispatch(signInAction(form, navigation));
-    navigation.navigate('Main');
   };
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
@@ -54,7 +53,7 @@ const SignIn = ({navigation}) => {
             placeholder="Enter your full name"
             sourceImageLeft={UserIcon}
             sourceImageLeftActive={UserIconActive}
-            value={form.email}
+            value={form.identity}
             onChangeText={(value) => setForm('identity', value)}
           />
           <View>

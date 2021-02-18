@@ -9,6 +9,7 @@ import {
   SignIn,
   ForgotPassword,
   CheckEmailForgotPassword,
+  CheckEmailForgot,
   SuccessCreatePassword,
   CreateNewPassword,
   Main,
@@ -57,6 +58,11 @@ const Router = () => {
       <Stack.Screen
         name="CheckEmailForgotPassword"
         component={CheckEmailForgotPassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CheckEmailForgot"
+        component={CheckEmailForgot}
         options={{headerShown: false}}
       />
       <Stack.Screen

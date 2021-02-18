@@ -3,13 +3,10 @@ import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Button, Gap} from '../../components/atoms';
 import {SuccessIllustration, BackIcon} from '../../assets';
+import {useDispatch, useSelector} from 'react-redux';
 import {CloseIcon} from '../../assets';
 
 const CheckEmailForgotPassword = ({navigation}) => {
-  const onSubmit = () => {
-    navigation.navigate('CreateNewPassword');
-  };
-
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
   };
@@ -42,7 +39,7 @@ const CheckEmailForgotPassword = ({navigation}) => {
             backgroundcolor="#0c8eff"
             textcolor="#ffff"
             text="Open email"
-            onPress={onSubmit}
+            onPress={() => handleGoTo('CreateNewPassword')}
           />
         </View>
         <Gap height={40} />

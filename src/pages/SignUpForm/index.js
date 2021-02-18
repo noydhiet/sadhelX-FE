@@ -24,9 +24,11 @@ const SignUpForm = ({navigation}) => {
     email: '',
     password: '',
   });
+
   const dispatch = useDispatch();
 
   const {registerReducer, photoReducer} = useSelector((state) => state);
+
   const onSubmit = () => {
     if (form.username == '' || form.email == '' || form.password == '') {
       showMessage('Isi semua field');
@@ -38,7 +40,6 @@ const SignUpForm = ({navigation}) => {
         ...registerReducer,
       };
       dispatch(signUpAction(data, photoReducer, navigation));
-      navigation.navigate('CheckEmailToken');
     }
   };
 

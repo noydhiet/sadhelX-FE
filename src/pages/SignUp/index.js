@@ -35,12 +35,16 @@ const SignUp = ({navigation}) => {
           showMessage('Anda tidak memilih photo');
         } else {
           const source = {uri: response.uri};
+          // console.log(response);
+
           const dataImage = {
             uri: response.uri,
             type: response.type,
             name: response.fileName,
           };
 
+          // console.log('source', source);
+          // console.log('data image', dataImage);
           setPhoto(source);
           dispatch({type: 'SET_PHOTO', value: dataImage});
           dispatch({type: 'SET_UPLOAD_STATUS', value: true});

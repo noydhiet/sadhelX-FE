@@ -17,10 +17,28 @@ import {
   SeePassword,
   SeePasswordActive,
 } from '../../assets';
+import {showMessage, useForm} from '../../utils';
+import {useDispatch, useSelector} from 'react-redux';
+import {createNewPasswordAction} from '../../redux/action';
 
 const CreateNewPassword = ({navigation}) => {
+  const [form, setForm] = useForm({
+    password: '',
+    password_re: '',
+  });
+
+  const {forgotReducer} = useSelector((state) => state);
+
+  const dispatch = useDispatch();
+
   const onSubmit = () => {
-    navigation.navigate('SuccessCreatePassword');
+    // navigation.navigate('SuccessCreatePassword');
+    const data = {
+      ...form,
+      ...forgotReducer,
+    };
+
+    dispatch(createNewPasswordAction(data, navigation));
   };
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
@@ -49,6 +67,7 @@ const CreateNewPassword = ({navigation}) => {
             sourceImageLeftActive={LockIconActive}
             sourceImageRight={SeePassword}
             sourceImageRightActive={SeePasswordActive}
+            onChangeText={(value) => setForm('password', value)}
           />
           <Gap height={20} />
           <TextInputPassword
@@ -58,6 +77,7 @@ const CreateNewPassword = ({navigation}) => {
             sourceImageLeftActive={LockIconActive}
             sourceImageRight={SeePassword}
             sourceImageRightActive={SeePasswordActive}
+            onChangeText={(value) => setForm('password_re', value)}
           />
           <Gap height={20} />
           <Text style={{fontSize: 12, fontFamily: 'RobotoRegular'}}>
