@@ -7,9 +7,13 @@ import CreateNewPassword from './CreateNewPassword';
 import SuccessCreatePassword from './SuccessCreatePassword';
 import SuccessSignUp from './SuccessSignUp';
 import SignIn from './SignIn';
-import Main from './Main';
 import ForgotPassword from './ForgotPassword';
 import WelcomeAuth from './WelcomeAuth';
+import Feed from './Feed';
+import Search from './Search';
+import Cycling from './Cycling';
+import Safety from './Safety';
+import Profile from './Profile';
 
 export {
   SignUp,
@@ -18,10 +22,14 @@ export {
   SignUpForm,
   CheckEmailToken,
   SuccessSignUp,
-  Main,
   ForgotPassword,
   CheckEmailForgotPassword,
   CheckEmailForgot,
   CreateNewPassword,
   SuccessCreatePassword,
+  Feed,
+  Search,
+  Cycling,
+  Safety,
+  Profile,
 };

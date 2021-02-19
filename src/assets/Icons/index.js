@@ -8,6 +8,14 @@ import LockIcon from './lock_icons.png';
 import LockIconActive from './lock_active_icons.png';
 import SeePassword from './seepassword.png';
 import SeePasswordActive from './seepassword_active.png';
+import FeedIcon from './feed.svg';
+import FeedActiveIcon from './feed_active.svg';
+import SearchIcon from './search.svg';
+import SearchActiveIcon from './search_active.svg';
+import SafetyIcon from './safety.svg';
+import SafetyActiveIcon from './safety_active.svg';
+import CyclingIcon from './cycling.svg';
+import ProfileIcon from './profile.svg';
 
 export {
   GoogleIcon,
@@ -20,4 +28,12 @@ export {
   SeePassword,
   LockIconActive,
   SeePasswordActive,
+  FeedIcon,
+  FeedActiveIcon,
+  SearchIcon,
+  SearchActiveIcon,
+  SafetyIcon,
+  SafetyActiveIcon,
+  CyclingIcon,
+  ProfileIcon,
 };

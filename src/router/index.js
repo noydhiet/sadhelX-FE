@@ -1,5 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   WelcomeAuth,
   SignUp,
@@ -12,14 +13,32 @@ import {
   CheckEmailForgot,
   SuccessCreatePassword,
   CreateNewPassword,
-  Main,
+  Feed,
+  Search,
+  Cycling,
+  Safety,
+  Profile,
 } from '../pages';
+import {BottomNavigator} from '../components';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const MainApp = () => {
+  return (
+    <Tab.Navigator tabBar={(props) => <BottomNavigator {...props} />}>
+      <Tab.Screen name="Feed" component={Feed} />
+      <Tab.Screen name="Search" component={Search} />
+      <Tab.Screen name="Cycling" component={Cycling} />
+      <Tab.Screen name="Safety" component={Safety} />
+      <Tab.Screen name="Profile" component={Profile} />
+    </Tab.Navigator>
+  );
+};
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="WelcomeAuth">
+    <Stack.Navigator initialRouteName="MainApp">
       <Stack.Screen
         name="WelcomeAuth"
         component={WelcomeAuth}
@@ -76,8 +95,8 @@ const Router = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Main"
-        component={Main}
+        name="MainApp"
+        component={MainApp}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

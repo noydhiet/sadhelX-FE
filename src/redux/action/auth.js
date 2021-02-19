@@ -11,8 +11,7 @@ export const signUpAction = (dataRegister, photoReducer, navigation) => (
     .then((res) => {
       if (res.data.status == true) {
         // const profile = '
-        
-        ';
+
         dispatch(setLoading(false));
         if (photoReducer.isUploadPhoto) {
           const photoForUpload = new FormData();
@@ -61,7 +60,7 @@ export const signInAction = (form, navigation) => (dispatch) => {
       storeData('tokenRefresh', tokenRefresh);
       storeData('userProfile', profile);
       if (res.data.status == true) {
-        navigation.reset({index: 0, routes: [{name: 'Main'}]});
+        navigation.reset({index: 0, routes: [{name: 'Feed'}]});
       } else {
         showMessage(res.data.msg);
       }
