@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {Button, Gap} from '../../components/atoms';
+import {Buttons, Gap} from '../../components/atoms';
 import {SuccessIllustration, BackIcon} from '../../assets';
 import {useDispatch, useSelector} from 'react-redux';
 import {CloseIcon} from '../../assets';
@@ -35,7 +35,7 @@ const CheckEmailForgotPassword = ({navigation}) => {
             </Text>
           </View>
           <Gap height={30} />
-          <Button
+          <Buttons
             backgroundcolor="#0c8eff"
             textcolor="#ffff"
             text="Open email"

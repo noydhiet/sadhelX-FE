@@ -7,35 +7,36 @@ export const signUpAction = (dataRegister, photoReducer, navigation) => (
   dispatch,
 ) => {
   dispatch(setLoading(true));
+  console.log(dataRegister);
   Axios.post(`${API_HOST.url}/signup`, dataRegister)
     .then((res) => {
+      console.log(res.data);
       if (res.data.status == true) {
-        // const profile = '
+        // const profile = res.data.data.user;
 
         dispatch(setLoading(false));
         if (photoReducer.isUploadPhoto) {
           const photoForUpload = new FormData();
           photoForUpload.append('identity', dataRegister.email);
           photoForUpload.append('avatar', photoReducer);
-          // console.log(photoForUpload);
+          console.log(photoReducer);
 
           Axios.put(`${API_HOST.url}/avatar-upload`, photoForUpload, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },
           })
-            .then((res) => {
-              // console.log(res.data.fileName);
-              profile.profile_photo_url = `${API_HOST.url}/avatar-storage/res.data.fileName`;
-              storeData('userProfile', profile);
-              // navigation.reset({index: 0, routes: [{name: 'SuccessSignUp'}]});
+            .then((resUpload) => {
+              console.log(resUpload.data);
+              navigation.reset({index: 0, routes: [{name: 'SuccessSignUp'}]});
             })
-            .catch((err) => {
-              console.log(err);
+            .catch((errUpload) => {
+              console.log(errUpload);
               showMessage('Upload photo tidak berhasil');
             });
+        } else {
+          navigation.reset({index: 0, routes: [{name: 'SuccessSignUp'}]});
         }
-        navigation.reset({index: 0, routes: [{name: 'SuccessSignUp'}]});
       }
     })
     .catch((err) => {
@@ -51,22 +52,25 @@ export const signInAction = (form, navigation) => (dispatch) => {
   dispatch(setLoading(true));
   Axios.post(`${API_HOST.url}/login`, form)
     .then((res) => {
+      // console.log(res);
       const tokenAccess = `${res.data.data.token.token_access}`;
       const tokenRefresh = `${res.data.data.token.token_refresh}`;
       const profile = res.data.data.user;
+      profile.profile_photo_url = `${API_HOST.url}/avatar-storage/${res.data.data.user.image_file}`;
 
       dispatch(setLoading(false));
       storeData('tokenAccess', tokenAccess);
       storeData('tokenRefresh', tokenRefresh);
       storeData('userProfile', profile);
       if (res.data.status == true) {
-        navigation.reset({index: 0, routes: [{name: 'Feed'}]});
+        navigation.reset({index: 0, routes: [{name: 'MainApp'}]});
       } else {
         showMessage(res.data.msg);
       }
     })
     .catch((err) => {
       dispatch(setLoading(false));
+      console.log(err);
       showMessage('Gagal Login');
       navigation.reset({index: 0, routes: [{name: 'SignIn'}]});
     });
@@ -78,7 +82,7 @@ export const forgotPasswordAction = (form, navigation) => (dispatch) => {
   dispatch(setLoading(true));
   Axios.post(`${API_HOST.url}/get-password-reset-code`, form)
     .then((res) => {
-      // console.log(res);
+      console.log(res);
       dispatch(setLoading(false));
       navigation.reset({
         index: 0,
@@ -86,7 +90,7 @@ export const forgotPasswordAction = (form, navigation) => (dispatch) => {
       });
     })
     .catch((err) => {
-      // console.log(err);
+      console.log(err);
       dispatch(setLoading(false));
       showMessage('Gagal mengirim OTP');
     });
@@ -98,7 +102,7 @@ export const checkTokenAction = (form, navigation) => (dispatch) => {
   dispatch(setLoading(true));
   Axios.post(`${API_HOST.url}/verify/password-reset`, form)
     .then((res) => {
-      // console.log(res);
+      console.log(res);
       dispatch(setLoading(false));
       navigation.reset({
         index: 0,
@@ -106,7 +110,7 @@ export const checkTokenAction = (form, navigation) => (dispatch) => {
       });
     })
     .catch((err) => {
-      // console.log(err);
+      console.log(err);
       dispatch(setLoading(false));
       showMessage('Gagal mengirim OTP');
     });
@@ -118,7 +122,7 @@ export const createNewPasswordAction = (form, navigation) => (dispatch) => {
   dispatch(setLoading(true));
   Axios.put(`${API_HOST.url}/reset-password`, form)
     .then((res) => {
-      // console.log(res);
+      console.log(res);
       dispatch(setLoading(false));
       navigation.reset({
         index: 0,
@@ -126,7 +130,7 @@ export const createNewPasswordAction = (form, navigation) => (dispatch) => {
       });
     })
     .catch((err) => {
-      // console.log(err);
+      console.log(err);
       dispatch(setLoading(false));
       showMessage('Gagal ganti password');
     });

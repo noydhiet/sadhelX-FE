@@ -23,25 +23,25 @@ const Icon = ({label, focus}) => {
   switch (label) {
     case 'Feed':
       return focus ? (
-        <View>
-          <FeedActiveIcon />
+        <View style={styles.icon}>
+          <FeedActiveIcon width={25} height={25} />
           <Text style={styles.textIconActive}>{label}</Text>
         </View>
       ) : (
-        <View>
-          <FeedIcon />
+        <View style={styles.icon}>
+          <FeedIcon width={30} height={30} />
           <Text style={styles.textIcon}>{label}</Text>
         </View>
       );
     case 'Search':
       return focus ? (
-        <View>
-          <SearchActiveIcon />
+        <View style={styles.icon}>
+          <SearchActiveIcon width={30} height={30} />
           <Text style={styles.textIconActive}>{label}</Text>
         </View>
       ) : (
-        <View>
-          <SearchIcon />
+        <View style={styles.icon}>
+          <SearchIcon width={30} height={30} />
           <Text style={styles.textIcon}>{label}</Text>
         </View>
       );
@@ -49,25 +49,25 @@ const Icon = ({label, focus}) => {
       return focus ? <Cycling /> : <Cycling />;
     case 'Safety':
       return focus ? (
-        <View>
-          <SafetyActiveIcon />
+        <View style={styles.icon}>
+          <SafetyActiveIcon width={30} height={30} />
           <Text style={styles.textIconActive}>{label}</Text>
         </View>
       ) : (
-        <View>
-          <SafetyIcon />
+        <View style={styles.icon}>
+          <SafetyIcon width={30} height={30} />
           <Text style={styles.textIcon}>{label}</Text>
         </View>
       );
     case 'Profile':
       return focus ? (
-        <View>
-          <ProfileIcon />
+        <View style={styles.icon}>
+          <ProfileIcon width={30} height={30} fill="#0c8eff" stroke="#0c8eff" />
           <Text style={styles.textIconActive}>{label}</Text>
         </View>
       ) : (
-        <View>
-          <ProfileIcon />
+        <View style={styles.icon}>
+          <ProfileIcon width={30} height={30} />
           <Text style={styles.textIcon}>{label}</Text>
         </View>
       );
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 17,
     paddingBottom: 13,
-    paddingHorizontal: 35,
+    paddingHorizontal: 25,
     justifyContent: 'space-between',
     alignItems: 'center',
     height: 80,
@@ -151,6 +151,13 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   wrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  icon: {
+    // backgroundColor: 'yellow',
+    width: 50,
+    height: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },

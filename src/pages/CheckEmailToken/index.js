@@ -8,7 +8,7 @@ import {
   TextInput,
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {Button, Gap} from '../../components/atoms';
+import {Buttons, Gap} from '../../components/atoms';
 import {BackIcon} from '../../assets';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 
@@ -63,7 +63,7 @@ const CheckEmailToken = ({navigation}) => {
           </Text>
           <Gap height={40} />
           <Gap height={40} />
-          <Button
+          <Buttons
             text="Verify Email"
             backgroundcolor="#0c8eff"
             textcolor="white"

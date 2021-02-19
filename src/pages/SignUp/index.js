@@ -31,6 +31,7 @@ const SignUp = ({navigation}) => {
         maxHeight: 200,
       },
       (response) => {
+        console.log(response);
         if (response.didCancel || response.error) {
           showMessage('Anda tidak memilih photo');
         } else {
@@ -46,6 +47,7 @@ const SignUp = ({navigation}) => {
           // console.log('source', source);
           // console.log('data image', dataImage);
           setPhoto(source);
+          console.log(source);
           dispatch({type: 'SET_PHOTO', value: dataImage});
           dispatch({type: 'SET_UPLOAD_STATUS', value: true});
         }

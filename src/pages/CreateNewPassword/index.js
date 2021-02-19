@@ -4,7 +4,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {
   TextInputIcon,
   TextInputPassword,
-  Button,
+  Buttons,
   Gap,
 } from '../../components/atoms';
 import {ButtonGoogle} from '../../components/molecules';
@@ -84,7 +84,7 @@ const CreateNewPassword = ({navigation}) => {
             Both password must be match.
           </Text>
           <Gap height={40} />
-          <Button
+          <Buttons
             text="Create new password"
             backgroundcolor="#757575"
             textcolor="white"

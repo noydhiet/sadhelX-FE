@@ -8,7 +8,7 @@ import {
   TextInput,
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {Button, Gap} from '../../components/atoms';
+import {Buttons, Gap} from '../../components/atoms';
 import {BackIcon} from '../../assets';
 import {showMessage, useForm} from '../../utils';
 import {useDispatch, useSelector} from 'react-redux';
@@ -74,7 +74,7 @@ const CheckEmailForgot = ({navigation}) => {
           </Text>
           <Gap height={40} />
           <Gap height={40} />
-          <Button
+          <Buttons
             text="Verify Email"
             backgroundcolor="#0c8eff"
             textcolor="white"

@@ -26,7 +26,9 @@ const Tab = createBottomTabNavigator();
 
 const MainApp = () => {
   return (
-    <Tab.Navigator tabBar={(props) => <BottomNavigator {...props} />}>
+    <Tab.Navigator
+      tabBar={(props) => <BottomNavigator {...props} />}
+      initialRouteName="Feed">
       <Tab.Screen name="Feed" component={Feed} />
       <Tab.Screen name="Search" component={Search} />
       <Tab.Screen name="Cycling" component={Cycling} />
@@ -38,7 +40,7 @@ const MainApp = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="MainApp">
+    <Stack.Navigator initialRouteName="WelcomeAuth">
       <Stack.Screen
         name="WelcomeAuth"
         component={WelcomeAuth}
