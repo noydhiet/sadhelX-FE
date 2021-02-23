@@ -54,6 +54,7 @@ const ForgotPassword = ({navigation}) => {
           <TextInputIcon
             label="Username or Email"
             placeholder="Enter your full name"
+            autoCapitalize="none"
             sourceImageLeft={UserIcon}
             sourceImageLeftActive={UserIconActive}
             onChangeText={(value) => setForm('identity', value)}

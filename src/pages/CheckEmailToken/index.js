@@ -11,23 +11,39 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Buttons, Gap} from '../../components/atoms';
 import {BackIcon} from '../../assets';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
+import {useDispatch, useSelector} from 'react-redux';
+import {verifyAction} from '../../redux/action';
 
 const CheckEmailToken = ({navigation}) => {
+  const [code, setCode] = useState('');
+
+  const dispatch = useDispatch();
+
+  const {signUpReducer} = useSelector((state) => state);
+
   const onSubmit = () => {
-    console.log(pin);
-    navigation.navigate('SuccessSignUp');
+    dispatch({type: 'SET_IDENTITY_CODE_SIGN', value: code});
+
+    const data = {
+      ...signUpReducer,
+    };
+
+    dispatch(verifyAction(data, navigation));
   };
 
   const handleGoTo = (screen) => {
     navigation.navigate(screen);
   };
 
-  const [pin, setPin] = useState('');
+  const onTextChange = (pin) => {
+    setCode(pin);
+    dispatch({type: 'SET_IDENTITY_CODE_SIGN', value: pin});
+  };
 
   return (
     <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => handleGoTo('SignUp')}>
           <Image source={BackIcon} style={styles.iconBack} />
         </TouchableOpacity>
       </View>
@@ -39,7 +55,7 @@ const CheckEmailToken = ({navigation}) => {
               <Text style={styles.subtitle}>
                 We have sent a verify account instruction to
               </Text>
-              <Text style={styles.subtitleEmail}>junaita.kusuma@gmail.com</Text>
+              <Text style={styles.subtitleEmail}>{signUpReducer.identity}</Text>
             </View>
           </View>
           <Gap height={20} />
@@ -50,10 +66,8 @@ const CheckEmailToken = ({navigation}) => {
               codeLength={4}
               cellStyleFocused={styles.cellFocused}
               cellStyle={styles.numberInput}
-              value={pin}
-              onTextChange={(code) => {
-                setPin(code);
-              }}
+              value={code}
+              onTextChange={(pin) => onTextChange(pin)}
             />
           </View>
           <Gap height={20} />

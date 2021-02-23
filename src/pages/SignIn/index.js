@@ -51,6 +51,7 @@ const SignIn = ({navigation}) => {
           <TextInputIcon
             label="Username or Email"
             placeholder="Enter your full name"
+            autoCapitalize="none"
             sourceImageLeft={UserIcon}
             sourceImageLeftActive={UserIconActive}
             value={form.identity}

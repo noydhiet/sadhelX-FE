@@ -57,3 +57,24 @@ export const forgotReducer = (state = initStateForgot, action) => {
   }
   return state;
 };
+
+const initStateSignUp = {
+  identity: '',
+  code: '',
+};
+
+export const signUpReducer = (state = initStateSignUp, action) => {
+  if (action.type === 'SET_IDENTITY_SIGN') {
+    return {
+      ...state,
+      identity: action.value,
+    };
+  }
+  if (action.type === 'SET_IDENTITY_CODE_SIGN') {
+    return {
+      ...state,
+      code: action.value,
+    };
+  }
+  return state;
+};

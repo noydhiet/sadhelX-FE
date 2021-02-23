@@ -37,6 +37,11 @@ const CheckEmailForgot = ({navigation}) => {
     navigation.navigate(screen);
   };
 
+  const onTextChange = (pin) => {
+    setCode(pin);
+    dispatch({type: 'SET_IDENTITY_CODE', value: code});
+  };
+
   return (
     <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
@@ -62,9 +67,7 @@ const CheckEmailForgot = ({navigation}) => {
               cellStyleFocused={styles.cellFocused}
               cellStyle={styles.numberInput}
               value={code}
-              onTextChange={(pin) => {
-                setCode(pin);
-              }}
+              onTextChange={(pin) => onTextChange(pin)}
             />
           </View>
           <Gap height={20} />

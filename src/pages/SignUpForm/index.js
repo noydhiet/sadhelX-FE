@@ -30,6 +30,8 @@ const SignUpForm = ({navigation}) => {
   const {registerReducer, photoReducer} = useSelector((state) => state);
 
   const onSubmit = () => {
+    dispatch({type: 'SET_IDENTITY_SIGN', value: form.email});
+
     if (form.username == '' || form.email == '' || form.password == '') {
       showMessage('Isi semua field');
     } else if (form.password != form.confirm_password) {
@@ -66,8 +68,9 @@ const SignUpForm = ({navigation}) => {
           <Gap height={20} />
           <TextInput
             label="Username"
+            autoCapitalize="none"
             placeholder="Enter your username"
-            onChangeText={(value) => setForm('username', value)}
+            onChangeText={(value) => setForm('username', value.toLowerCase())}
           />
           <Gap height={20} />
           <TextInput
@@ -75,7 +78,8 @@ const SignUpForm = ({navigation}) => {
             placeholder="Enter your email"
             textContentType="emailAddress"
             keyboardType="email-address"
-            onChangeText={(value) => setForm('email', value)}
+            autoCapitalize="none"
+            onChangeText={(value) => setForm('email', value.toLowerCase())}
           />
           <Gap height={20} />
           <TextInputPassword

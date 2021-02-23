@@ -13,13 +13,11 @@ export const signUpAction = (dataRegister, photoReducer, navigation) => (
       console.log(res.data);
       if (res.data.status == true) {
         // const profile = res.data.data.user;
-
-        dispatch(setLoading(false));
         if (photoReducer.isUploadPhoto) {
           const photoForUpload = new FormData();
           photoForUpload.append('identity', dataRegister.email);
           photoForUpload.append('avatar', photoReducer);
-          console.log(photoReducer);
+          console.log(photoForUpload);
 
           Axios.put(`${API_HOST.url}/avatar-upload`, photoForUpload, {
             headers: {
@@ -27,15 +25,18 @@ export const signUpAction = (dataRegister, photoReducer, navigation) => (
             },
           })
             .then((resUpload) => {
+              dispatch(setLoading(false));
               console.log(resUpload.data);
-              navigation.reset({index: 0, routes: [{name: 'SuccessSignUp'}]});
+              navigation.reset({index: 0, routes: [{name: 'CheckEmailToken'}]});
             })
             .catch((errUpload) => {
+              dispatch(setLoading(false));
               console.log(errUpload);
               showMessage('Upload photo tidak berhasil');
+              navigation.reset({index: 0, routes: [{name: 'CheckEmailToken'}]});
             });
         } else {
-          navigation.reset({index: 0, routes: [{name: 'SuccessSignUp'}]});
+          navigation.reset({index: 0, routes: [{name: 'CheckEmailToken'}]});
         }
       }
     })
@@ -133,5 +134,25 @@ export const createNewPasswordAction = (form, navigation) => (dispatch) => {
       console.log(err);
       dispatch(setLoading(false));
       showMessage('Gagal ganti password');
+    });
+};
+
+export const verifyAction = (form, navigation) => (dispatch) => {
+  console.log(form);
+
+  dispatch(setLoading(true));
+  Axios.post(`${API_HOST.url}/verify/email`, form)
+    .then((res) => {
+      console.log(res);
+      dispatch(setLoading(false));
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'SuccessSignUp'}],
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch(setLoading(false));
+      showMessage('Gagal mengirim OTP');
     });
 };
