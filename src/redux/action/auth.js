@@ -31,19 +31,22 @@ export const signUpAction = (dataRegister, photoReducer, navigation) => (
             })
             .catch((errUpload) => {
               dispatch(setLoading(false));
-              console.log(errUpload);
-              showMessage('Upload photo tidak berhasil');
+              console.log(errUpload.response.data);
+              showMessage(
+                errUpload.response.data.msg || 'Upload photo tidak berhasil',
+              );
               navigation.reset({index: 0, routes: [{name: 'CheckEmailToken'}]});
             });
         } else {
+          dispatch(setLoading(false));
           navigation.reset({index: 0, routes: [{name: 'CheckEmailToken'}]});
         }
       }
     })
     .catch((err) => {
       dispatch(setLoading(false));
-      showMessage('Sign up Gagal');
-      console.log(err);
+      showMessage(err.response.data.msg || 'Sign up Gagal');
+      console.log(err.response.data);
     });
 };
 
@@ -71,8 +74,8 @@ export const signInAction = (form, navigation) => (dispatch) => {
     })
     .catch((err) => {
       dispatch(setLoading(false));
-      console.log(err);
-      showMessage('Gagal Login');
+      console.log(err.response.data);
+      showMessage(err.response.data.msg || 'Gagal Login');
       navigation.reset({index: 0, routes: [{name: 'SignIn'}]});
     });
 };
@@ -91,9 +94,9 @@ export const forgotPasswordAction = (form, navigation) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err.response.data);
       dispatch(setLoading(false));
-      showMessage('Gagal mengirim OTP');
+      showMessage(err.response.data.msg || 'Gagal mengirim OTP');
     });
 };
 
@@ -111,9 +114,9 @@ export const checkTokenAction = (form, navigation) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err.response.data);
       dispatch(setLoading(false));
-      showMessage('Gagal mengirim OTP');
+      showMessage(err.response.data.msg || 'Gagal mengirim OTP');
     });
 };
 
@@ -131,9 +134,9 @@ export const createNewPasswordAction = (form, navigation) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err.response.data);
       dispatch(setLoading(false));
-      showMessage('Gagal ganti password');
+      showMessage(err.response.data.msg || 'Gagal ganti password');
     });
 };
 
@@ -151,8 +154,8 @@ export const verifyAction = (form, navigation) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err.response.data);
       dispatch(setLoading(false));
-      showMessage('Gagal mengirim OTP');
+      showMessage(err.response.data.msg || 'Gagal mengirim OTP');
     });
 };
