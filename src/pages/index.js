@@ -1,7 +1,7 @@
+import SplashScreen from './SplashScreen';
 import SignUp from './SignUp';
 import SignUpForm from './SignUpForm';
 import CheckEmailToken from './CheckEmailToken';
-import CheckEmailForgotPassword from './CheckEmailForgotPassword';
 import CheckEmailForgot from './CheckEmailForgot';
 import CreateNewPassword from './CreateNewPassword';
 import SuccessCreatePassword from './SuccessCreatePassword';
@@ -23,7 +23,7 @@ export {
   CheckEmailToken,
   SuccessSignUp,
   ForgotPassword,
-  CheckEmailForgotPassword,
+  SplashScreen,
   CheckEmailForgot,
   CreateNewPassword,
   SuccessCreatePassword,

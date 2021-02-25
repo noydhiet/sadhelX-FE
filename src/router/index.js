@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
+  SplashScreen,
   WelcomeAuth,
   SignUp,
   SignUpForm,
@@ -9,7 +10,6 @@ import {
   SuccessSignUp,
   SignIn,
   ForgotPassword,
-  CheckEmailForgotPassword,
   CheckEmailForgot,
   SuccessCreatePassword,
   CreateNewPassword,
@@ -40,7 +40,12 @@ const MainApp = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="WelcomeAuth">
+    <Stack.Navigator initialRouteName="SplashScreen">
+      <Stack.Screen
+        name="SplashScreen"
+        component={SplashScreen}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="WelcomeAuth"
         component={WelcomeAuth}
@@ -74,11 +79,6 @@ const Router = () => {
       <Stack.Screen
         name="ForgotPassword"
         component={ForgotPassword}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="CheckEmailForgotPassword"
-        component={CheckEmailForgotPassword}
         options={{headerShown: false}}
       />
       <Stack.Screen

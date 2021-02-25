@@ -25,7 +25,7 @@ const Profile = ({navigation}) => {
       'tokenAccess',
       'tokenRefresh',
     ]).then(() => {
-      navigation.reset({index: 0, routes: [{name: 'SignIn'}]});
+      navigation.reset({index: 0, routes: [{name: 'WelcomeAuth'}]});
     });
   };
   return (
