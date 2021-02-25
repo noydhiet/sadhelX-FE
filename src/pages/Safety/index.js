@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, ScrollView, Button} from 'react-native';
 import {TouchableHighlight} from 'react-native-gesture-handler';
 import {TipsRidingItem} from '../../components';
 
-const Safety = () => {
+const Safety = ({navigation}) => {
   return (
     <View style={styles.page}>
       <View style={styles.header}>
@@ -59,6 +59,7 @@ const Safety = () => {
         </View>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
+        <TipsRidingItem />
         <TipsRidingItem />
         <TipsRidingItem />
         <TipsRidingItem />

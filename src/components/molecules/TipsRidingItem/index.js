@@ -1,11 +1,10 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {Buttons} from '../../atoms';
+import {useNavigation} from '@react-navigation/native';
 
-const TipsRidingItem = ({navigation}) => {
-  const handleGoTo = (screen) => {
-    navigation.navigate(screen);
-  };
+const TipsRidingItem = (props) => {
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -60,7 +59,7 @@ const TipsRidingItem = ({navigation}) => {
               backgroundcolor="#0c8eff"
               text="View Details"
               textcolor="white"
-              //   onPress={() => handleGoTo('TipsPDF')}
+              onPress={() => navigation.navigate('TipsPDF')}
             />
           </View>
         </View>

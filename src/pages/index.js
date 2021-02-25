@@ -14,6 +14,7 @@ import Search from './Search';
 import Cycling from './Cycling';
 import Safety from './Safety';
 import Profile from './Profile';
+import TipsPDF from './TipsPDF';
 
 export {
   SignUp,
@@ -32,4 +33,5 @@ export {
   Cycling,
   Safety,
   Profile,
+  TipsPDF,
 };

@@ -18,6 +18,7 @@ import {
   Cycling,
   Safety,
   Profile,
+  TipsPDF,
 } from '../pages';
 import {BottomNavigator} from '../components';
 
@@ -99,6 +100,11 @@ const Router = () => {
       <Stack.Screen
         name="MainApp"
         component={MainApp}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="TipsPDF"
+        component={TipsPDF}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
