@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     backgroundColor: '#ffffff',
-    elevation: 2,
+    elevation: 50,
   },
   wrapper: {
     justifyContent: 'center',

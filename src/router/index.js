@@ -1,6 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
 import {
   SplashScreen,
   WelcomeAuth,
@@ -16,7 +17,9 @@ import {
   Feed,
   Search,
   Cycling,
-  Safety,
+  SafetyTips,
+  SafetyVideo,
+  SafetySertifikasi,
   Profile,
   TipsPDF,
 } from '../pages';
@@ -33,9 +36,36 @@ const MainApp = () => {
       <Tab.Screen name="Feed" component={Feed} />
       <Tab.Screen name="Search" component={Search} />
       <Tab.Screen name="Cycling" component={Cycling} />
-      <Tab.Screen name="Safety" component={Safety} />
+      <Tab.Screen name="Safety" component={SafetyStackScreen} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
+  );
+};
+
+const SafetyStackScreen = () => {
+  return (
+    <Stack.Navigator initialRouteName="Safety">
+      <Stack.Screen
+        name="SafetyTips"
+        component={SafetyTips}
+        options={{headerShown: false, animationEnabled: false}}
+      />
+      <Stack.Screen
+        name="SafetyVideo"
+        component={SafetyVideo}
+        options={{headerShown: false, animationEnabled: false}}
+      />
+      <Stack.Screen
+        name="SafetySertifikasi"
+        component={SafetySertifikasi}
+        options={{headerShown: false, animationEnabled: false}}
+      />
+      <Stack.Screen
+        name="TipsPDF"
+        component={TipsPDF}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
   );
 };
 
@@ -100,11 +130,6 @@ const Router = () => {
       <Stack.Screen
         name="MainApp"
         component={MainApp}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="TipsPDF"
-        component={TipsPDF}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

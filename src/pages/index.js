@@ -12,7 +12,9 @@ import WelcomeAuth from './WelcomeAuth';
 import Feed from './Feed';
 import Search from './Search';
 import Cycling from './Cycling';
-import Safety from './Safety';
+import SafetyTips from './SafetyTips';
+import SafetyVideo from './SafetyVideo';
+import SafetySertifikasi from './SafetySertifikasi';
 import Profile from './Profile';
 import TipsPDF from './TipsPDF';
 
@@ -31,7 +33,9 @@ export {
   Feed,
   Search,
   Cycling,
-  Safety,
+  SafetyTips,
+  SafetyVideo,
+  SafetySertifikasi,
   Profile,
   TipsPDF,
 };
