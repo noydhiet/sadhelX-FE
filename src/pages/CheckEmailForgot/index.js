@@ -61,9 +61,9 @@ const CheckEmailForgot = ({navigation}) => {
           <Gap height={20} />
           <View style={styles.verifyContainer}>
             <SmoothPinCodeInput
-              maskDelay={1000}
+              // maskDelay={1000}
               // password={true}
-              codeLength={4}
+              codeLength={6}
               cellStyleFocused={styles.cellFocused}
               cellStyle={styles.numberInput}
               value={code}
@@ -149,15 +149,19 @@ const styles = StyleSheet.create({
   verifyContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
+    // backgroundColor: 'yellow',
+    width: '100%',
   },
   numberInput: {
-    height: 60,
-    width: 60,
+    height: 50,
+    width: 50,
     borderWidth: 1,
     borderColor: '#80979797',
-    borderRadius: 20,
-    padding: 20,
-    marginRight: 15,
+    borderRadius: 10,
+    padding: 10,
+    marginRight: 5,
+    // backgroundColor: 'pink',
   },
   helpWrapper: {
     flexDirection: 'row',

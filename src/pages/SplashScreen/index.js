@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import {Gap} from '../../components';
 import {getData} from '../../utils';
+import {LogoSadhel} from '../../assets';
 
 const SplashScreen = ({navigation}) => {
   useEffect(() => {
@@ -18,7 +19,11 @@ const SplashScreen = ({navigation}) => {
 
   return (
     <View style={styles.page}>
-      <Text style={styles.title}>Sadhel X</Text>
+      <Image
+        source={LogoSadhel}
+        style={{width: 250, height: 150, resizeMode: 'contain'}}
+      />
+      {/* <Text style={styles.title}>Sadhel X</Text> */}
     </View>
   );
 };

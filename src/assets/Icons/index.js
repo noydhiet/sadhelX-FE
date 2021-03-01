@@ -16,6 +16,8 @@ import SafetyIcon from './safety.svg';
 import SafetyActiveIcon from './safety_active.svg';
 import CyclingIcon from './cycling.svg';
 import ProfileIcon from './profile.svg';
+import ProfileActiveIcon from './profile_active.svg';
+import LogoSadhel from './logo_sadhel.png';
 
 export {
   GoogleIcon,
@@ -36,4 +38,6 @@ export {
   SafetyActiveIcon,
   CyclingIcon,
   ProfileIcon,
+  ProfileActiveIcon,
+  LogoSadhel,
 };

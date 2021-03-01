@@ -8,13 +8,14 @@ import {
   SafetyIcon,
   SafetyActiveIcon,
   ProfileIcon,
+  ProfileActiveIcon,
   CyclingIcon,
 } from '../../../assets';
 
-const Cycling = () => {
+const IconCycling = () => {
   return (
-    <View style={styles.cycling}>
-      <CyclingIcon />
+    <View>
+      <CyclingIcon width={80} height={80} />
     </View>
   );
 };
@@ -24,7 +25,7 @@ const Icon = ({label, focus}) => {
     case 'Feed':
       return focus ? (
         <View style={styles.icon}>
-          <FeedActiveIcon width={25} height={25} />
+          <FeedActiveIcon width={30} height={30} />
           <Text style={styles.textIconActive}>{label}</Text>
         </View>
       ) : (
@@ -46,7 +47,7 @@ const Icon = ({label, focus}) => {
         </View>
       );
     case 'Cycling':
-      return focus ? <Cycling /> : <Cycling />;
+      return focus ? <IconCycling /> : <IconCycling />;
     case 'Safety':
       return focus ? (
         <View style={styles.icon}>
@@ -62,7 +63,7 @@ const Icon = ({label, focus}) => {
     case 'Profile':
       return focus ? (
         <View style={styles.icon}>
-          <ProfileIcon width={30} height={30} fill="#0c8eff" stroke="#0c8eff" />
+          <ProfileActiveIcon width={30} height={30} />
           <Text style={styles.textIconActive}>{label}</Text>
         </View>
       ) : (
@@ -168,13 +169,5 @@ const styles = StyleSheet.create({
   textIconActive: {
     color: '#0c8eff',
     fontSize: 10,
-  },
-  cycling: {
-    width: 50,
-    height: 50,
-    borderRadius: 4,
-    backgroundColor: '#0c8eff',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
