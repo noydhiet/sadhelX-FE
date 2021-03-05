@@ -7,7 +7,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import {TextInputIcon, Button, Gap} from '../../components/atoms';
+import {TextInputIcon, Buttons, Gap} from '../../components/atoms';
 import {ButtonGoogle} from '../../components/molecules';
 import {showMessage, useForm} from '../../utils';
 import {useDispatch, useSelector} from 'react-redux';
@@ -27,6 +27,7 @@ const ForgotPassword = ({navigation}) => {
     const data = {
       ...form,
     };
+    console.log(data);
 
     dispatch(forgotPasswordAction(data, navigation));
   };
@@ -57,10 +58,10 @@ const ForgotPassword = ({navigation}) => {
             autoCapitalize="none"
             sourceImageLeft={UserIcon}
             sourceImageLeftActive={UserIconActive}
-            onChangeText={(value) => setForm('identity', value)}
+            onChangeText={(value) => setForm('identity', value.toLowerCase())}
           />
           <Gap height={30} />
-          <Button
+          <Buttons
             text="Next"
             backgroundcolor="#757575"
             textcolor="white"

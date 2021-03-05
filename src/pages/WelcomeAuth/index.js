@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View, ImageBackground} from 'react-native';
-import {Button, Buttons, Gap} from '../../components/atoms';
+import {Buttons, Gap} from '../../components/atoms';
 import {ButtonGoogle} from '../../components/molecules';
 import {DummyBanner} from '../../assets';
 

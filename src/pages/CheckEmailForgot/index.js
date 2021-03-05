@@ -39,7 +39,7 @@ const CheckEmailForgot = ({navigation}) => {
 
   const onTextChange = (pin) => {
     setCode(pin);
-    dispatch({type: 'SET_IDENTITY_CODE', value: code});
+    dispatch({type: 'SET_IDENTITY_CODE', value: pin});
   };
 
   return (

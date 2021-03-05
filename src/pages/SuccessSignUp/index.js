@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {Button, Gap} from '../../components/atoms';
+import {Buttons, Gap} from '../../components/atoms';
 import {SuccessIllustration, BackIcon} from '../../assets';
 import {CloseIcon} from '../../assets';
 
@@ -29,7 +29,7 @@ const SucessSignUp = ({navigation}) => {
           <Gap height={15} />
           <Text style={styles.desctext}>Now you can sign in to sadhelX</Text>
           <Gap height={30} />
-          <Button
+          <Buttons
             backgroundcolor="#0c8eff"
             textcolor="#ffff"
             text="Sign In"
