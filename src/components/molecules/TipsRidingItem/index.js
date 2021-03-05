@@ -3,8 +3,12 @@ import {View, Text, StyleSheet} from 'react-native';
 import {Buttons} from '../../atoms';
 import {useNavigation} from '@react-navigation/native';
 
-const TipsRidingItem = (props) => {
+const TipsRidingItem = () => {
   const navigation = useNavigation();
+  const source = {
+    uri:
+      'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+  };
   return (
     <View style={styles.card}>
       <View
@@ -27,7 +31,11 @@ const TipsRidingItem = (props) => {
               backgroundcolor="#0c8eff"
               text="View Details"
               textcolor="white"
-              onPress={() => navigation.navigate('TipsPDF')}
+              onPress={() =>
+                navigation.navigate('TipsPDF', {
+                  source,
+                })
+              }
             />
           </View>
         </View>

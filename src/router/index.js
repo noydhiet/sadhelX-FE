@@ -44,7 +44,7 @@ const MainApp = () => {
 
 const SafetyStackScreen = () => {
   return (
-    <Stack.Navigator initialRouteName="Safety">
+    <Stack.Navigator initialRouteName="SafetyTips">
       <Stack.Screen
         name="SafetyTips"
         component={SafetyTips}

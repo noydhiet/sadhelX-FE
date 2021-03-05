@@ -41,7 +41,7 @@ const Profile = ({navigation}) => {
           />
           <View style={{flex: 1}}>
             <Text style={styles.text}>
-              Username Anda : {userProfile.username}{' '}
+              Username Anda : {userProfile.username}
             </Text>
             <Gap height={20} />
             <Text t style={styles.text}>

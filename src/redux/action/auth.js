@@ -12,13 +12,12 @@ export const signUpAction = (dataRegister, photoReducer, navigation) => (
     .then((res) => {
       console.log(res.data);
       if (res.data.status == true) {
-        // const profile = res.data.data.user;
+        const profile = res.data.data.user;
         if (photoReducer.isUploadPhoto) {
           const photoForUpload = new FormData();
           photoForUpload.append('identity', dataRegister.email);
           photoForUpload.append('avatar', photoReducer);
           console.log(photoForUpload);
-
           Axios.put(`${API_HOST.url}/avatar-upload`, photoForUpload, {
             headers: {
               'Content-Type': 'multipart/form-data',
@@ -39,14 +38,15 @@ export const signUpAction = (dataRegister, photoReducer, navigation) => (
             });
         } else {
           dispatch(setLoading(false));
-          navigation.reset({index: 0, routes: [{name: 'CheckEmailToken'}]});
+          navigation.reset({index: 0, routes: [{name: 'SignUp'}]});
         }
       }
     })
     .catch((err) => {
       dispatch(setLoading(false));
       showMessage(err.response.data.msg || 'Sign up Gagal');
-      console.log(err.response.data);
+      // console.log(err.response.data);
+      console.log(err.response);
     });
 };
 
@@ -74,7 +74,8 @@ export const signInAction = (form, navigation) => (dispatch) => {
     })
     .catch((err) => {
       dispatch(setLoading(false));
-      console.log(err.response.data);
+      // console.log(err.response.data);
+      console.log(err);
       showMessage(err.response.data.msg || 'Gagal Login');
       navigation.reset({index: 0, routes: [{name: 'SignIn'}]});
     });

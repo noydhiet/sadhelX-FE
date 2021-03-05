@@ -1,14 +1,17 @@
 import React from 'react';
-import {StyleSheet, Dimensions, View} from 'react-native';
+import {StyleSheet, Dimensions, View, Text} from 'react-native';
 import {Buttons} from '../../components';
 
 import Pdf from 'react-native-pdf';
 
-const TipsPDF = ({navigation}) => {
-  const source = {
-    uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf',
-    cache: true,
-  };
+const TipsPDF = ({navigation, route}) => {
+  // const source = {
+  //   // uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf',
+  //   uri:
+  //     'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+  //   cache: true,
+  // };
+  const {source} = route.params;
   return (
     <View style={styles.container}>
       <View>

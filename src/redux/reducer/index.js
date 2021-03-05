@@ -6,6 +6,7 @@ import {
   signUpReducer,
 } from './auth';
 import {globalReducer} from './global';
+import {safetyReducer} from './safety';
 
 const reducer = combineReducers({
   registerReducer,
@@ -13,6 +14,7 @@ const reducer = combineReducers({
   photoReducer,
   forgotReducer,
   signUpReducer,
+  safetyReducer,
 });
 
 export default reducer;
