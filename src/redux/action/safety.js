@@ -5,11 +5,13 @@ import {showMessage} from '../../utils';
 export const getSafetyTips = () => (dispatch) => {
   Axios.get(`${API_HOST.guidelines}/documents`)
     .then((res) => {
-      dispatch({type: 'SET_SAFETY_TIPS'});
-      console.log(res.data);
+      dispatch({
+        type: 'SET_SAFETY_TIPS',
+        value: res.data.data,
+      });
     })
     .catch((err) => {
-      //   console.log(Object.keys(err.response.data.data).length);
-      console.log(err.response.data.msg);
+      console.log(err.data.msg);
+      showMessage(err.data.msg || 'Gagal Mengambil Data Tips Riding');
     });
 };

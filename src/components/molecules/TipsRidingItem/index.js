@@ -1,13 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {Buttons} from '../../atoms';
+import {Button} from '../../atoms';
 import {useNavigation} from '@react-navigation/native';
 
-const TipsRidingItem = () => {
+const TipsRidingItem = ({link, title}) => {
   const navigation = useNavigation();
   const source = {
     uri:
-      'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+      // 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+      `http://10.147.20.154:8089/guidelines/documents/${link}`,
   };
   return (
     <View style={styles.card}>
@@ -21,13 +22,15 @@ const TipsRidingItem = () => {
           style={{
             flexDirection: 'column',
             justifyContent: 'space-between',
-            padding: 10,
+            paddingBottom: 10,
+            width: '53%',
           }}>
-          <Text style={styles.desContainer}>
-            6 Safety points, for children while out riding their bikes.
+          {/* <Text style={styles.desContainer}>{title}</Text> */}
+          <Text style={styles.desContainer} numberOfLines={4}>
+            {title}
           </Text>
-          <View style={{width: '50%'}}>
-            <Buttons
+          <View style={{width: '100%'}}>
+            <Button
               backgroundcolor="#0c8eff"
               text="View Details"
               textcolor="white"
@@ -61,20 +64,19 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   imageContainer: {
-    width: 148,
+    width: '44%',
     height: 148,
     backgroundColor: '#eeee',
     marginRight: 10,
     borderRadius: 8,
   },
   desContainer: {
-    width: '50%',
-    height: 51,
-    fontFamily: 'Sarabun',
-    fontSize: 13.4,
-    fontWeight: 'normal',
-    fontStyle: 'normal',
-    letterSpacing: 0.5,
+    width: '100%',
+    height: 80,
+    fontFamily: 'SarabunSemiBold',
+    textTransform: 'capitalize',
+    fontSize: 14,
+    letterSpacing: 0,
     lineHeight: 20,
     textAlign: 'justify',
     color: '#454749',

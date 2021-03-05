@@ -9,20 +9,32 @@ const SafetyTips = ({navigation}) => {
   const {tips} = useSelector((state) => state.safetyReducer);
   useEffect(() => {
     dispatch(getSafetyTips());
+    // console.log({tips});
   }, [dispatch]);
   return (
     <View style={styles.page}>
       <SafetyHeader />
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* <TipsRidingItem />
-        <TipsRidingItem />
-        <TipsRidingItem />
-        <TipsRidingItem />
-        <TipsRidingItem />
-        <TipsRidingItem />
-        <TipsRidingItem />
-        <TipsRidingItem />
-        <TipsRidingItem /> */}
+        {tips.map((data) => {
+          // console.log(data);
+          return (
+            <TipsRidingItem
+              key={data.id}
+              title={data.guidelines_name}
+              link={data.guidelines_link}
+            />
+          );
+        })}
+        {/* {tips.map((data) => {
+            console.log(data);
+            return (
+              <Text>Halo</Text>
+              // <TipsRidingItem
+              //   key={itemTips.id}
+              //   title={itemTips.guidelines_name}
+              // />
+            );
+          })} */}
       </ScrollView>
     </View>
   );
