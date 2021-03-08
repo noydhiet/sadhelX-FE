@@ -1,52 +1,58 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const FeedItem = () => {
   return (
     <View style={styles.card}>
       <View style={styles.headCard}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <View style={styles.userIconHeader}></View>
+          <TouchableOpacity style={styles.userIconHeader}></TouchableOpacity>
           <View style={{marginLeft: 5}}>
             <Text style={styles.textUsername}>Your username</Text>
             <Text style={{fontSize: 10, marginTop: 3}}>5 min</Text>
           </View>
         </View>
-        <View style={{backgroundColor: '#eee', height: 30, width: 30}}></View>
+        <TouchableOpacity
+          style={{
+            backgroundColor: '#eee',
+            height: 30,
+            width: 30,
+          }}></TouchableOpacity>
       </View>
       <View style={styles.cardContent}>
-        <View style={styles.imagecCardContent}></View>
+        <TouchableOpacity style={styles.imagecCardContent}></TouchableOpacity>
         <View style={styles.interactionCardContent}>
           <View style={styles.interactionWrapper}>
-            <View style={styles.likesContainer}>
+            <TouchableOpacity style={styles.likesContainer}>
               <View style={styles.iconMock}></View>
               <Text>2,566</Text>
-            </View>
-            <View style={styles.likesContainer}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.likesContainer}>
               <View style={styles.iconMock}></View>
               <Text>534</Text>
-            </View>
+            </TouchableOpacity>
           </View>
           <View>
-            <View>
-              <View
-                style={{
-                  backgroundColor: '#eee',
-                  height: 25,
-                  width: 25,
-                }}></View>
-            </View>
+            <TouchableOpacity
+              style={{
+                backgroundColor: '#eee',
+                height: 25,
+                width: 25,
+              }}></TouchableOpacity>
           </View>
         </View>
         <View style={styles.captionContainer}>
           <Text style={styles.textUsername}>
-            Your username{'  '}
+            <Text>Your username{'  '}</Text>
             <Text style={styles.textCaption}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a
               efficitur arcu. In et velit sed est vulputate tristique a id
               leo...
             </Text>
-            <Text style={styles.textMore}>{'  '}More</Text>
+            <Text style={styles.textMore} onPress={() => console.log('Detail')}>
+              {'  '}More
+            </Text>
           </Text>
         </View>
       </View>

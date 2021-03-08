@@ -59,17 +59,17 @@ const CheckEmailToken = ({navigation}) => {
             </View>
           </View>
           <Gap height={20} />
-          <View style={styles.verifyContainer}>
-            <SmoothPinCodeInput
-              // maskDelay={1000}
-              // password={true}
-              codeLength={6}
-              cellStyleFocused={styles.cellFocused}
-              cellStyle={styles.numberInput}
-              value={code}
-              onTextChange={(pin) => onTextChange(pin)}
-            />
-          </View>
+          {/* <View style={styles.verifyContainer}> */}
+          <SmoothPinCodeInput
+            keyboardType="numeric"
+            containerStyle={styles.verifyContainer}
+            codeLength={6}
+            cellStyleFocused={styles.cellFocused}
+            cellStyle={styles.numberInput}
+            value={code}
+            onTextChange={(pin) => onTextChange(pin)}
+          />
+          {/* </View> */}
           <Gap height={20} />
           <Text style={styles.subtitle}>
             Did not receive the email? Check your spam filter, or{' '}
@@ -147,21 +147,16 @@ const styles = StyleSheet.create({
     color: '#0c8eff',
   },
   verifyContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    // backgroundColor: 'yellow',
+    height: 100,
     width: '100%',
   },
   numberInput: {
     height: 50,
-    width: 50,
     borderWidth: 1,
     borderColor: '#80979797',
     borderRadius: 10,
     padding: 10,
     marginRight: 5,
-    // backgroundColor: 'pink',
   },
   helpWrapper: {
     flexDirection: 'row',

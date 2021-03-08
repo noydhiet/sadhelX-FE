@@ -1,9 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const EventItem = () => {
   return (
-    <View
+    <TouchableOpacity
       style={{
         backgroundColor: 'white',
         width: 250,
@@ -64,7 +65,7 @@ const EventItem = () => {
         }}>
         Free
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

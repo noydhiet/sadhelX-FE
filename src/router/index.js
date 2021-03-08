@@ -33,7 +33,7 @@ const MainApp = () => {
   return (
     <Tab.Navigator
       tabBar={(props) => <BottomNavigator {...props} />}
-      initialRouteName="Profile">
+      initialRouteName="Feed">
       <Tab.Screen name="Feed" component={Feed} />
       <Tab.Screen name="Search" component={Search} />
       <Tab.Screen name="Cycling" component={Cycling} />
@@ -45,7 +45,7 @@ const MainApp = () => {
 
 const ProfileScreen = () => {
   return (
-    <Stack.Navigator initialRouteName="ProfileMenus">
+    <Stack.Navigator initialRouteName="ProfileActivity">
       <Stack.Screen
         name="ProfileActivity"
         component={Profile}
@@ -62,7 +62,7 @@ const ProfileScreen = () => {
 
 const SafetyStackScreen = () => {
   return (
-    <Stack.Navigator initialRouteName="SafetySertifikasi">
+    <Stack.Navigator initialRouteName="SafetyTips">
       <Stack.Screen
         name="SafetyTips"
         component={SafetyTips}
@@ -89,7 +89,7 @@ const SafetyStackScreen = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="MainApp">
+    <Stack.Navigator initialRouteName="CheckEmailForgot">
       <Stack.Screen
         name="SplashScreen"
         component={SplashScreen}

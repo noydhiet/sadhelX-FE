@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const ProfileHeader = () => {
   return (
@@ -7,8 +8,8 @@ const ProfileHeader = () => {
       <View style={styles.wrapper}>
         <Text style={styles.textHeader}>Profile</Text>
         <View style={{flexDirection: 'row'}}>
-          <View style={styles.iconHeader}></View>
-          <View style={styles.iconHeader}></View>
+          <TouchableOpacity style={styles.iconHeader}></TouchableOpacity>
+          <TouchableOpacity style={styles.iconHeader}></TouchableOpacity>
         </View>
       </View>
     </View>
