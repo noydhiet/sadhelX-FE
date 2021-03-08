@@ -21,6 +21,7 @@ import {
   SafetyVideo,
   SafetySertifikasi,
   Profile,
+  ProfileMenus,
   TipsPDF,
 } from '../pages';
 import {BottomNavigator} from '../components';
@@ -32,19 +33,36 @@ const MainApp = () => {
   return (
     <Tab.Navigator
       tabBar={(props) => <BottomNavigator {...props} />}
-      initialRouteName="Feed">
+      initialRouteName="Profile">
       <Tab.Screen name="Feed" component={Feed} />
       <Tab.Screen name="Search" component={Search} />
       <Tab.Screen name="Cycling" component={Cycling} />
       <Tab.Screen name="Safety" component={SafetyStackScreen} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
+  );
+};
+
+const ProfileScreen = () => {
+  return (
+    <Stack.Navigator initialRouteName="ProfileMenus">
+      <Stack.Screen
+        name="ProfileActivity"
+        component={Profile}
+        options={{headerShown: false, animationEnabled: false}}
+      />
+      <Stack.Screen
+        name="ProfileMenus"
+        component={ProfileMenus}
+        options={{headerShown: false, animationEnabled: false}}
+      />
+    </Stack.Navigator>
   );
 };
 
 const SafetyStackScreen = () => {
   return (
-    <Stack.Navigator initialRouteName="SafetyTips">
+    <Stack.Navigator initialRouteName="SafetySertifikasi">
       <Stack.Screen
         name="SafetyTips"
         component={SafetyTips}
@@ -71,7 +89,7 @@ const SafetyStackScreen = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="SplashScreen">
+    <Stack.Navigator initialRouteName="MainApp">
       <Stack.Screen
         name="SplashScreen"
         component={SplashScreen}

@@ -16,6 +16,7 @@ import SafetyTips from './SafetyTips';
 import SafetyVideo from './SafetyVideo';
 import SafetySertifikasi from './SafetySertifikasi';
 import Profile from './Profile';
+import ProfileMenus from './ProfileMenus';
 import TipsPDF from './TipsPDF';
 
 export {
@@ -37,5 +38,6 @@ export {
   SafetyVideo,
   SafetySertifikasi,
   Profile,
+  ProfileMenus,
   TipsPDF,
 };

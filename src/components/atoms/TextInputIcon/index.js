@@ -6,7 +6,7 @@ import {
   TextInput as TextInputRN,
   Image,
 } from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+
 
 const TextInputIcon = ({
   label,
