@@ -57,26 +57,7 @@ const SignIn = ({navigation}) => {
             value={form.identity}
             onChangeText={(value) => setForm('identity', value)}
           />
-          <View>
-            <TouchableOpacity
-              style={{
-                height: 20,
-                bottom: -20,
-                position: 'relative',
-              }}
-              onPress={() => handleGoTo('ForgotPassword')}>
-              <View style={{position: 'absolute', right: 0, bottom: 5}}>
-                <Text
-                  style={{
-                    fontFamily: 'RobotoRegular',
-                    fontSize: 12,
-                    color: '#0c8eff',
-                  }}>
-                  Forgot Password
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+          <Gap height={10} />
           <TextInputPassword
             label="Password"
             placeholder="Password at least 8 characters"
@@ -87,14 +68,41 @@ const SignIn = ({navigation}) => {
             value={form.password}
             onChangeText={(value) => setForm('password', value)}
           />
-          <Gap height={30} />
+          <Gap height={20} />
           <Buttons
             text="Sign In"
             backgroundcolor="#757575"
             textcolor="white"
             onPress={onSubmit}
           />
-          <Gap height={50} />
+          <Gap height={30} />
+          <TouchableOpacity
+            style={{
+              height: 20,
+              width: '100%',
+            }}
+            onPress={() => handleGoTo('ForgotPassword')}>
+            <Text
+              style={{
+                fontFamily: 'RobotoRegular',
+                fontSize: 12,
+                color: '#0c8eff',
+                textAlign: 'center',
+              }}>
+              Forgot your login details?{' '}
+              <Text
+                style={{
+                  fontFamily: 'RobotoRegular',
+                  fontSize: 12,
+                  color: '#0c8eff',
+                  textAlign: 'center',
+                  fontWeight: 'bold',
+                }}>
+                Get help logging in.
+              </Text>
+            </Text>
+          </TouchableOpacity>
+          <Gap height={40} />
           <View
             style={{
               height: 1,
@@ -118,13 +126,14 @@ const SignIn = ({navigation}) => {
           </View>
           <Gap height={50} />
           <ButtonGoogle />
-          <Gap height={70} />
+          <Gap height={50} />
           <View style={styles.signInWrapper}>
             <Text style={styles.textOuter}>Not a member?</Text>
             <Text style={styles.textInner} onPress={() => handleGoTo('SignUp')}>
               Create account
             </Text>
           </View>
+          <Gap height={50} />
         </View>
       </View>
     </ScrollView>

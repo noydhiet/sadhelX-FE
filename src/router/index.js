@@ -89,7 +89,7 @@ const SafetyStackScreen = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="CheckEmailForgot">
+    <Stack.Navigator initialRouteName="SuccessSignUp">
       <Stack.Screen
         name="SplashScreen"
         component={SplashScreen}

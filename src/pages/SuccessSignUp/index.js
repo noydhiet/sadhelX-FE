@@ -21,6 +21,7 @@ const SucessSignUp = ({navigation}) => {
           <Image source={CloseIcon} style={styles.iconBack} />
         </TouchableOpacity>
       </View>
+      <Gap height={50} />
       <View style={styles.container}>
         <View style={styles.main}>
           <Text style={styles.titleText}>Create Account Success</Text>
@@ -35,6 +36,7 @@ const SucessSignUp = ({navigation}) => {
             text="Sign In"
             onPress={onSubmit}
           />
+          <Gap height={30} />
         </View>
       </View>
     </ScrollView>
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
   },
   main: {
     paddingVertical: 10,
-    paddingHorizontal: 50,
+    paddingHorizontal: 40,
     flex: 1,
   },
   iconBack: {
@@ -67,7 +69,6 @@ const styles = StyleSheet.create({
     height: 20,
   },
   titleText: {
-    // paddingHorizontal: 25,
     textAlign: 'center',
     fontSize: 26,
     fontFamily: 'SarabunExtraBold',

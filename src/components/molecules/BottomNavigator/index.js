@@ -25,24 +25,24 @@ const Icon = ({label, focus}) => {
     case 'Feed':
       return focus ? (
         <View style={styles.icon}>
-          <FeedActiveIcon width={30} height={30} />
+          <FeedActiveIcon />
           <Text style={styles.textIconActive}>{label}</Text>
         </View>
       ) : (
         <View style={styles.icon}>
-          <FeedIcon width={30} height={30} />
+          <FeedIcon />
           <Text style={styles.textIcon}>{label}</Text>
         </View>
       );
     case 'Search':
       return focus ? (
         <View style={styles.icon}>
-          <SearchActiveIcon width={30} height={30} />
+          <SearchActiveIcon />
           <Text style={styles.textIconActive}>{label}</Text>
         </View>
       ) : (
         <View style={styles.icon}>
-          <SearchIcon width={30} height={30} />
+          <SearchIcon />
           <Text style={styles.textIcon}>{label}</Text>
         </View>
       );
@@ -51,24 +51,24 @@ const Icon = ({label, focus}) => {
     case 'Safety':
       return focus ? (
         <View style={styles.icon}>
-          <SafetyActiveIcon width={30} height={30} />
+          <SafetyActiveIcon />
           <Text style={styles.textIconActive}>{label}</Text>
         </View>
       ) : (
         <View style={styles.icon}>
-          <SafetyIcon width={30} height={30} />
+          <SafetyIcon />
           <Text style={styles.textIcon}>{label}</Text>
         </View>
       );
     case 'Profile':
       return focus ? (
         <View style={styles.icon}>
-          <ProfileActiveIcon width={30} height={30} />
+          <ProfileActiveIcon />
           <Text style={styles.textIconActive}>{label}</Text>
         </View>
       ) : (
         <View style={styles.icon}>
-          <ProfileIcon width={30} height={30} />
+          <ProfileIcon />
           <Text style={styles.textIcon}>{label}</Text>
         </View>
       );
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 80,
+    height: '12%',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     backgroundColor: '#ffffff',

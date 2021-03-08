@@ -51,7 +51,7 @@ export default TipsRidingItem;
 
 const styles = StyleSheet.create({
   card: {
-    height: 180,
+    height: 150,
     borderRadius: 4,
     backgroundColor: '#ffffff',
     borderStyle: 'solid',
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: '44%',
-    height: 148,
+    height: 125,
     backgroundColor: '#eeee',
     marginRight: 10,
     borderRadius: 8,

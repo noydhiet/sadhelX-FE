@@ -120,6 +120,7 @@ const SignUpForm = ({navigation}) => {
             </Text>
           </View>
         </View>
+        <Gap height={30} />
       </View>
     </ScrollView>
   );

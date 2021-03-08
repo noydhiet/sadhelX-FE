@@ -32,7 +32,7 @@ const WelcomeAuth = ({navigation}) => {
             onPress={() => handleGoTo('SignIn')}
           />
         </View>
-        <Gap height={20} />
+        <Gap height={10} />
         <View style={styles.signupWrapper}>
           <Text style={styles.textOuter}>Not a member?</Text>
           <Text style={styles.textInner} onPress={() => handleGoTo('SignUp')}>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   containerLogin: {
     backgroundColor: 'white',
-    height: 300,
+    height: '38%',
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',

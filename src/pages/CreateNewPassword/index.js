@@ -90,6 +90,7 @@ const CreateNewPassword = ({navigation}) => {
             textcolor="white"
             onPress={onSubmit}
           />
+          <Gap height={40} />
         </View>
       </View>
     </ScrollView>
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
     height: 20,
   },
   titleContainer: {
-    paddingHorizontal: 30,
+    paddingHorizontal: 10,
   },
   titleText: {
     fontSize: 26,

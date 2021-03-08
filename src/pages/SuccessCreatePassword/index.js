@@ -24,21 +24,22 @@ const SuccessCreatePassword = ({navigation}) => {
       <View style={styles.container}>
         <View style={styles.main}>
           <Text style={styles.titleText}>Create Password Success</Text>
-          <Gap height={20} />
+          <Gap height={10} />
           <SuccessIllustration style={styles.illustrationSuccess} />
-          <Gap height={15} />
+          <Gap height={10} />
           <View style={styles.signInWrapper}>
             <Text style={styles.textOuter}>
               You have new password, please keep this only for you.
             </Text>
           </View>
-          <Gap height={50} />
+          <Gap height={40} />
           <Buttons
             backgroundcolor="#0c8eff"
             textcolor="#ffff"
             text="Sign In"
             onPress={onSubmit}
           />
+          <Gap height={40} />
         </View>
       </View>
     </ScrollView>
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
   },
   main: {
     paddingVertical: 10,
-    paddingHorizontal: 50,
+    paddingHorizontal: 40,
     flex: 1,
   },
   iconBack: {
@@ -86,7 +87,8 @@ const styles = StyleSheet.create({
     fontFamily: 'SarabunMedium',
     textAlign: 'center',
     fontSize: 14,
-    paddingHorizontal: 30,
+    // paddingHorizontal: 30,
+    width: 200,
   },
   textInner: {
     fontFamily: 'SarabunMedium',
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
     color: '#0c8eff',
   },
   illustrationSuccess: {
-    width: 250,
+    width: '100%',
     height: 200,
   },
 });

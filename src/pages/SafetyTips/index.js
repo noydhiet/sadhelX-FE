@@ -9,14 +9,36 @@ const SafetyTips = ({navigation}) => {
   const {tips} = useSelector((state) => state.safetyReducer);
   useEffect(() => {
     dispatch(getSafetyTips());
-    // console.log({tips});
+    console.log({tips});
   }, [dispatch]);
   return (
     <View style={styles.page}>
       <SafetyHeader />
       <ScrollView showsVerticalScrollIndicator={false}>
+        {/* {tips ? (
+          tips.map((data) => {
+            // console.log(data);
+            return (
+              <TipsRidingItem
+                key={data.id}
+                title={data.guidelines_name}
+                link={data.guidelines_link}
+              />
+            );
+          })
+        ) : (
+          <View
+            style={{
+              justifyContent: 'center',
+              textAlign: 'center',
+              alignItems: 'center',
+              height: 450,
+            }}>
+            <Text>Data Kosong</Text>
+          </View>
+        )} */}
         {tips.map((data) => {
-          // console.log(data);
+          console.log(data);
           return (
             <TipsRidingItem
               key={data.id}
@@ -25,16 +47,6 @@ const SafetyTips = ({navigation}) => {
             />
           );
         })}
-        {/* {tips.map((data) => {
-            console.log(data);
-            return (
-              <Text>Halo</Text>
-              // <TipsRidingItem
-              //   key={itemTips.id}
-              //   title={itemTips.guidelines_name}
-              // />
-            );
-          })} */}
       </ScrollView>
     </View>
   );

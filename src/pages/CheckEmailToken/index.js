@@ -83,7 +83,7 @@ const CheckEmailToken = ({navigation}) => {
             textcolor="white"
             onPress={onSubmit}
           />
-          <Gap height={200} />
+          <Gap height={100} />
           <View style={styles.helpWrapper}>
             <Text
               style={styles.textInner}
@@ -91,6 +91,7 @@ const CheckEmailToken = ({navigation}) => {
               Need more help?
             </Text>
           </View>
+          <Gap height={100} />
         </View>
       </View>
     </ScrollView>
@@ -125,9 +126,10 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 25,
     fontFamily: 'SarabunExtraBold',
+    textAlign: 'center',
   },
   title: {
-    paddingHorizontal: 55,
+    paddingHorizontal: 25,
   },
   subtitleContainer: {
     flexDirection: 'column',
@@ -147,7 +149,7 @@ const styles = StyleSheet.create({
     color: '#0c8eff',
   },
   verifyContainer: {
-    height: 100,
+    height: 80,
     width: '100%',
   },
   numberInput: {

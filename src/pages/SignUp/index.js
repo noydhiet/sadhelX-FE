@@ -99,13 +99,14 @@ const SignUp = ({navigation}) => {
             backgroundcoloronpress="#0c8eff"
             onPress={onSubmit}
           />
-          <Gap height={80} />
+          <Gap height={70} />
           <View style={styles.signInWrapper}>
             <Text style={styles.textOuter}>Already a member?</Text>
             <Text style={styles.textInner} onPress={() => handleGoTo('SignIn')}>
               Sign In
             </Text>
           </View>
+          <Gap height={70} />
         </View>
       </View>
     </ScrollView>
