@@ -28,7 +28,6 @@ const HeadProfile = () => {
         email={userProfile.email}
         image={userProfile.profile_photo_url}
       />
-      <ProfileTabs />
     </View>
   );
 };

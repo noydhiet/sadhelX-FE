@@ -1,8 +1,19 @@
 import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, ScrollView, Button} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Button,
+  Dimensions,
+} from 'react-native';
 import {SafetyHeader, TipsRidingItem} from '../../components';
 import {useDispatch, useSelector} from 'react-redux';
 import {getSafetyTips} from '../../redux/action/safety';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const SafetyTips = ({navigation}) => {
   const dispatch = useDispatch();
@@ -15,7 +26,7 @@ const SafetyTips = ({navigation}) => {
     <View style={styles.page}>
       <SafetyHeader />
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* {tips ? (
+        {tips.length > 0 ? (
           tips.map((data) => {
             // console.log(data);
             return (
@@ -32,12 +43,12 @@ const SafetyTips = ({navigation}) => {
               justifyContent: 'center',
               textAlign: 'center',
               alignItems: 'center',
-              height: 450,
+              height: hp('70%'),
             }}>
-            <Text>Data Kosong</Text>
+            <Text>Memuat Data...</Text>
           </View>
-        )} */}
-        {tips.map((data) => {
+        )}
+        {/* {tips.map((data) => {
           console.log(data);
           return (
             <TipsRidingItem
@@ -46,7 +57,7 @@ const SafetyTips = ({navigation}) => {
               link={data.guidelines_link}
             />
           );
-        })}
+        })} */}
       </ScrollView>
     </View>
   );

@@ -12,6 +12,6 @@ export const getSafetyTips = () => (dispatch) => {
     })
     .catch((err) => {
       console.log(err);
-      // showMessage(err.data || 'Gagal Mengambil Data Tips Riding');
+      // showMessage(err);
     });
 };

@@ -15,7 +15,7 @@ import {
 const IconCycling = () => {
   return (
     <View>
-      <CyclingIcon width={80} height={80} />
+      <CyclingIcon width={70} height={90} />
     </View>
   );
 };
@@ -145,11 +145,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: '10%',
+    height: '9%',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     backgroundColor: '#ffffff',
-    elevation: 50,
+    // position: 'absolute',
+    // bottom: 0,
+    // width: '100%',
+    borderColor: '#ddd',
+    borderWidth: 0.5,
+    shadowColor: '#ddd',
+    shadowOffset: {width: 10, height: 20},
+    shadowOpacity: 10,
+    shadowRadius: 2,
+    elevation: 1,
   },
   wrapper: {
     justifyContent: 'center',

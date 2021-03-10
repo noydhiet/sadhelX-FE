@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import {Button} from '../../atoms';
 import {useNavigation} from '@react-navigation/native';
+import Axios from 'axios';
 
 const TipsRidingItem = ({link, title}) => {
   const navigation = useNavigation();
@@ -10,6 +11,9 @@ const TipsRidingItem = ({link, title}) => {
       // 'https://www.tutorialspoint.com/react_native/react_native_tutorial.pdf',
       `http://celeratesdev.zapto.org:8089/guidelines/documents/${link}`,
   };
+  const image = {
+    uri: `https://www.thenfapost.com/wp-content/uploads/2020/08/unnamed-2.png`,
+  };
   return (
     <View style={styles.card}>
       <View
@@ -17,7 +21,7 @@ const TipsRidingItem = ({link, title}) => {
           flexDirection: 'row',
           padding: 10,
         }}>
-        <View style={styles.imageContainer}></View>
+        <Image source={image} style={styles.imageContainer} />
         <View
           style={{
             flexDirection: 'column',
@@ -39,6 +43,7 @@ const TipsRidingItem = ({link, title}) => {
                   source,
                 })
               }
+              // onPress={() => console.log(source.uri)}
             />
           </View>
         </View>
@@ -69,6 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#eeee',
     marginRight: 10,
     borderRadius: 8,
+    resizeMode: 'cover',
   },
   desContainer: {
     width: '100%',

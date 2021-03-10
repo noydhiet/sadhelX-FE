@@ -32,6 +32,7 @@ const Tab = createBottomTabNavigator();
 const MainApp = () => {
   return (
     <Tab.Navigator
+      sceneContainerStyle={{height: 1000}}
       tabBar={(props) => <BottomNavigator {...props} />}
       initialRouteName="Feed">
       <Tab.Screen name="Feed" component={Feed} />

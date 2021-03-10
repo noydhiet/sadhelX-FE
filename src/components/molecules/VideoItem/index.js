@@ -2,12 +2,18 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {Gap} from '../../atoms';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import Video from 'react-native-video';
 
 const VideoItem = () => {
+  const videoBuffer = (isBuffer) => {
+    console.log(isBuffer);
+    //here you could set the isBuffer value to the state and then do something with it
+    //such as show a loading icon
+  };
   return (
     <View
       style={{
-        height: 200,
+        height: 220,
         width: '49%',
         borderRadius: 5.6,
         backgroundColor: '#ffffff',
@@ -17,14 +23,27 @@ const VideoItem = () => {
         borderColor: '#dfe1e5',
         marginBottom: 10,
       }}>
-      <TouchableOpacity
+      <Video
+        source={{
+          uri:
+            'https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4',
+        }}
+        posterResizeMode={'cover'}
+        controls={true}
+        resizeMode={'cover'}
+        paused={true}
+        onBuffer={videoBuffer}
+        poster={
+          'https://i.pinimg.com/564x/60/49/41/6049413e5f0dc69eacc059800f86d290.jpg'
+        }
         style={{
-          backgroundColor: '#000',
-          height: 100,
+          backgroundColor: 'white',
+          height: '55%',
           width: '100%',
           borderTopLeftRadius: 5.6,
           borderTopRightRadius: 5.6,
-        }}></TouchableOpacity>
+        }}
+      />
       <View style={{paddingHorizontal: 7, paddingVertical: 10}}>
         <Text
           style={{

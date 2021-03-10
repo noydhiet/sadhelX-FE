@@ -3,6 +3,8 @@ import {API_HOST} from '../../config';
 import {showMessage, storeData, getData} from '../../utils';
 import {setLoading} from './global';
 
+Axios.defaults.timeout = 10000;
+
 export const signUpAction = (dataRegister, photoReducer, navigation) => (
   dispatch,
 ) => {
@@ -32,7 +34,7 @@ export const signUpAction = (dataRegister, photoReducer, navigation) => (
               dispatch(setLoading(false));
               console.log(errUpload.response.data);
               showMessage(
-                errUpload.response.data.msg || 'Upload photo tidak berhasil',
+                errUpload?.response?.data?.msg || 'Upload photo tidak berhasil',
               );
               navigation.reset({index: 0, routes: [{name: 'CheckEmailToken'}]});
             });
@@ -44,9 +46,9 @@ export const signUpAction = (dataRegister, photoReducer, navigation) => (
     })
     .catch((err) => {
       dispatch(setLoading(false));
-      showMessage(err.response.data.msg || 'Sign up Gagal');
+      showMessage(err?.response?.data?.msg || 'Sign up Tidak berhasil');
       // console.log(err.response.data);
-      console.log(err.response);
+      console.log(err?.response?.data);
     });
 };
 
@@ -69,14 +71,16 @@ export const signInAction = (form, navigation) => (dispatch) => {
       if (res.data.status == true) {
         navigation.reset({index: 0, routes: [{name: 'MainApp'}]});
       } else {
-        showMessage(res.data.msg);
+        showMessage(res?.data?.msg);
       }
     })
     .catch((err) => {
       dispatch(setLoading(false));
       // console.log(err.response.data);
       console.log(err);
-      showMessage(err.response.data.msg || 'Gagal Login');
+      showMessage(
+        err?.response?.data?.msg || 'Tidak berhasil login, silakan login ulang',
+      );
       navigation.reset({index: 0, routes: [{name: 'SignIn'}]});
     });
 };
@@ -95,9 +99,9 @@ export const forgotPasswordAction = (form, navigation) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err.response.data);
+      console.log(err?.response?.data);
       dispatch(setLoading(false));
-      showMessage(err.response.data.msg || 'Gagal mengirim OTP');
+      showMessage(err?.response?.data?.msg || 'Tidak berhasil mengirim OTP');
     });
 };
 
@@ -115,9 +119,9 @@ export const checkTokenAction = (form, navigation) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err.response.data);
+      console.log(err?.response?.data);
       dispatch(setLoading(false));
-      showMessage(err.response.data.msg || 'Gagal mengirim OTP');
+      showMessage(err?.response?.data?.msg || 'Tidak berhasil mengirim OTP');
     });
 };
 
@@ -135,9 +139,9 @@ export const createNewPasswordAction = (form, navigation) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err.response.data);
+      console.log(err?.response?.data);
       dispatch(setLoading(false));
-      showMessage(err.response.data.msg || 'Gagal ganti password');
+      showMessage(err?.response?.data?.msg || 'Tidak berhasil ganti password');
     });
 };
 
@@ -155,8 +159,8 @@ export const verifyAction = (form, navigation) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err.response.data);
+      console.log(err?.response?.data);
       dispatch(setLoading(false));
-      showMessage(err.response.data.msg || 'Gagal mengirim OTP');
+      showMessage(err?.response?.data?.msg || 'Tidak berhasil mengirim OTP');
     });
 };
