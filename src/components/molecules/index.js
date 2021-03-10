@@ -10,6 +10,7 @@ import CourseItem from './CourseItem';
 import ProfileHeader from './ProfileHeader';
 import ProfileInfo from './ProfileInfo';
 import ProfileTabs from './ProfileTabs';
+import HeadProfile from './HeadProfile';
 
 export {
   Loading,
@@ -24,4 +25,5 @@ export {
   ProfileHeader,
   ProfileInfo,
   ProfileTabs,
+  HeadProfile,
 };

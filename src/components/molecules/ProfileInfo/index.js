@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 
-const ProfileInfo = () => {
+const ProfileInfo = ({username, email, image}) => {
   return (
     <View style={{backgroundColor: 'white', height: 180}}>
       <View
@@ -11,13 +11,15 @@ const ProfileInfo = () => {
           height: 150,
           justifyContent: 'space-between',
         }}>
-        <View
+        <Image
+          source={{uri: image}}
           style={{
             backgroundColor: 'pink',
             height: '100%',
             width: '34%',
             borderRadius: 11,
-          }}></View>
+          }}
+        />
         <View
           style={{
             height: '100%',
@@ -32,8 +34,9 @@ const ProfileInfo = () => {
               letterSpacing: 0,
               color: '#141b26',
               marginBottom: 4,
+              textTransform: 'capitalize',
             }}>
-            Your username
+            {username}
           </Text>
           <Text
             style={{
@@ -44,7 +47,7 @@ const ProfileInfo = () => {
               color: '#939399',
               marginBottom: 7,
             }}>
-            @username
+            {email}
           </Text>
           <View
             style={{

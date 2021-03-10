@@ -52,7 +52,7 @@ const SignUpForm = ({navigation}) => {
   return (
     <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
           <Image source={BackIcon} style={styles.iconBack}></Image>
         </TouchableOpacity>
       </View>

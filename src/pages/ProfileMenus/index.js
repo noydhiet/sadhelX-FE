@@ -4,42 +4,22 @@ import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {TextInput, Button, Gap} from '../../components/atoms';
 import {getData, storeData} from '../../utils';
-import {
-  FeedItem,
-  ProfileHeader,
-  ProfileInfo,
-  ProfileTabs,
-} from '../../components';
+import {HeadProfile} from '../../components';
 
 const ProfilMenus = ({navigation}) => {
-  // const [userProfile, setUserProfile] = useState({});
-  // useEffect(() => {
-  //   navigation.addListener('focus', () => {
-  //     getUserProfile();
-  //   });
-  // }, [navigation]);
-
-  // const getUserProfile = () => {
-  //   getData('userProfile').then((res) => {
-  //     setUserProfile(res);
-  //     console.log(res);
-  //   });
-  // };
-  // const signOut = () => {
-  //   AsyncStorage.multiRemove([
-  //     'userProfile',
-  //     'tokenAccess',
-  //     'tokenRefresh',
-  //   ]).then(() => {
-  //     navigation.reset({index: 0, routes: [{name: 'WelcomeAuth'}]});
-  //   });
-  // };
+  const signOut = () => {
+    AsyncStorage.multiRemove([
+      'userProfile',
+      'tokenAccess',
+      'tokenRefresh',
+    ]).then(() => {
+      navigation.reset({index: 0, routes: [{name: 'WelcomeAuth'}]});
+    });
+  };
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={{backgroundColor: 'white', flex: 1}}>
-        <ProfileHeader />
-        <ProfileInfo />
-        <ProfileTabs />
+        <HeadProfile />
         <Gap height={15} />
         <View
           style={{
@@ -82,7 +62,7 @@ const ProfilMenus = ({navigation}) => {
           </View>
           <Gap height={15} />
           <View style={styles.wrapperItemInfo}>
-            <TouchableOpacity style={styles.itemInfo}>
+            <TouchableOpacity style={styles.itemInfo} onPress={signOut}>
               <Text style={styles.textItem}>Log out</Text>
             </TouchableOpacity>
           </View>

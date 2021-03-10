@@ -6,40 +6,37 @@ import {TextInput, Button, Gap} from '../../components/atoms';
 import {getData, storeData} from '../../utils';
 import {
   FeedItem,
+  HeadProfile,
   ProfileHeader,
   ProfileInfo,
   ProfileTabs,
 } from '../../components';
 
 const Profile = ({navigation}) => {
-  // const [userProfile, setUserProfile] = useState({});
-  // useEffect(() => {
-  //   navigation.addListener('focus', () => {
-  //     getUserProfile();
-  //   });
-  // }, [navigation]);
+  const [userProfile, setUserProfile] = useState({});
+  useEffect(() => {
+    navigation.addListener('focus', () => {
+      getUserProfile();
+    });
+  }, [navigation]);
 
-  // const getUserProfile = () => {
-  //   getData('userProfile').then((res) => {
-  //     setUserProfile(res);
-  //     console.log(res);
-  //   });
-  // };
-  // const signOut = () => {
-  //   AsyncStorage.multiRemove([
-  //     'userProfile',
-  //     'tokenAccess',
-  //     'tokenRefresh',
-  //   ]).then(() => {
-  //     navigation.reset({index: 0, routes: [{name: 'WelcomeAuth'}]});
-  //   });
-  // };
+  const getUserProfile = () => {
+    getData('userProfile').then((res) => {
+      setUserProfile(res);
+      console.log(res);
+    });
+  };
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={{backgroundColor: 'white', flex: 1}}>
-        <ProfileHeader />
-        <ProfileInfo />
-        <ProfileTabs />
+        <HeadProfile />
+        {/* <ProfileHeader />
+        <ProfileInfo
+          username={userProfile.username}
+          email={userProfile.email}
+          image={userProfile.profile_photo_url}
+        />
+        <ProfileTabs /> */}
         <View>
           <FeedItem />
           <FeedItem />

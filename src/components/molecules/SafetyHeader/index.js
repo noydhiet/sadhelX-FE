@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     color: '#313233',
   },
   iconActive: {
-    width: 84,
+    width: 94,
     height: 24,
     borderRadius: 3,
     backgroundColor: '#0c8eff',
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   icon: {
-    width: 84,
+    width: 94,
     height: 24,
     borderRadius: 3,
     backgroundColor: '#f0f2f5',

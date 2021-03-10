@@ -7,8 +7,8 @@ const TipsRidingItem = ({link, title}) => {
   const navigation = useNavigation();
   const source = {
     uri:
-      // 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-      `http://10.147.20.154:8089/guidelines/documents/${link}`,
+      // 'https://www.tutorialspoint.com/react_native/react_native_tutorial.pdf',
+      `http://celeratesdev.zapto.org:8089/guidelines/documents/${link}`,
   };
   return (
     <View style={styles.card}>
@@ -25,7 +25,7 @@ const TipsRidingItem = ({link, title}) => {
             paddingBottom: 10,
             width: '53%',
           }}>
-          {/* <Text style={styles.desContainer}>{title}</Text> */}
+          {/* <Text style={styles.desContainer}>Contoh Judul Article Sepeda</Text> */}
           <Text style={styles.desContainer} numberOfLines={4}>
             {title}
           </Text>

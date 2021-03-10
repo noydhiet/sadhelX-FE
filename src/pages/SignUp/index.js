@@ -26,9 +26,9 @@ const SignUp = ({navigation}) => {
   const addPhoto = () => {
     launchImageLibrary(
       {
-        quality: 0.5,
-        maxWidth: 200,
-        maxHeight: 200,
+        quality: 1,
+        maxWidth: 500,
+        maxHeight: 500,
       },
       (response) => {
         console.log(response);
@@ -58,7 +58,7 @@ const SignUp = ({navigation}) => {
   return (
     <ScrollView style={styles.wrapper}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => navigation.navigate('WelcomeAuth')}>
           <Image source={BackIcon} style={styles.iconBack}></Image>
         </TouchableOpacity>
       </View>
