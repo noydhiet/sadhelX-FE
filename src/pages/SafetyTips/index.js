@@ -15,13 +15,12 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const SafetyTips = ({navigation}) => {
+const SafetyTips = () => {
   const dispatch = useDispatch();
   const {tips} = useSelector((state) => state.safetyReducer);
   useEffect(() => {
     dispatch(getSafetyTips());
-    console.log({tips});
-  }, [dispatch]);
+  }, []);
   return (
     <View style={styles.page}>
       <SafetyHeader />

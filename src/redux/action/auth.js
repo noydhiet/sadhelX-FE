@@ -3,7 +3,7 @@ import {API_HOST} from '../../config';
 import {showMessage, storeData, getData} from '../../utils';
 import {setLoading} from './global';
 
-Axios.defaults.timeout = 10000;
+// Axios.defaults.timeout = 5000;
 
 export const signUpAction = (dataRegister, photoReducer, navigation) => (
   dispatch,
@@ -40,8 +40,14 @@ export const signUpAction = (dataRegister, photoReducer, navigation) => (
             });
         } else {
           dispatch(setLoading(false));
-          navigation.reset({index: 0, routes: [{name: 'SignUp'}]});
+          console.log(res.data);
+          showMessage('Anda tidak mengupload photo');
+          navigation.reset({index: 0, routes: [{name: 'CheckEmailToken'}]});
         }
+      } else {
+        dispatch(setLoading(false));
+        showMessage("Tidak berhasil Signup")
+        navigation.reset({index: 0, routes: [{name: 'SignUp'}]});
       }
     })
     .catch((err) => {

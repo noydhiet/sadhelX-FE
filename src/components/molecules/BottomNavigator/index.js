@@ -14,8 +14,8 @@ import {
 
 const IconCycling = () => {
   return (
-    <View>
-      <CyclingIcon width={70} height={90} />
+    <View style={{width: 70, height: 70}}>
+      <CyclingIcon width={'100%'} height={'100%'} />
     </View>
   );
 };

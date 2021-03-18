@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 
 const ProfileInfo = ({username, email, image}) => {
+  // console.log(username, email, image);
   return (
     <View style={{backgroundColor: 'white', height: 180}}>
       <View
@@ -12,9 +13,9 @@ const ProfileInfo = ({username, email, image}) => {
           justifyContent: 'space-between',
         }}>
         <Image
-          source={{uri: image}}
+          source={{uri: `${image}`}}
           style={{
-            backgroundColor: 'pink',
+            backgroundColor: '#f7f7f7',
             height: '100%',
             width: '34%',
             borderRadius: 11,
@@ -35,7 +36,8 @@ const ProfileInfo = ({username, email, image}) => {
               color: '#141b26',
               marginBottom: 4,
               textTransform: 'capitalize',
-            }}>
+            }}
+            numberOfLines={1}>
             {username}
           </Text>
           <Text

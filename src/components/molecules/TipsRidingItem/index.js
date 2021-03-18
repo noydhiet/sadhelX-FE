@@ -14,6 +14,7 @@ const TipsRidingItem = ({link, title}) => {
   const image = {
     uri: `https://www.thenfapost.com/wp-content/uploads/2020/08/unnamed-2.png`,
   };
+  console.log(source);
   return (
     <View style={styles.card}>
       <View
